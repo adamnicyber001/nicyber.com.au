@@ -1,0 +1,1582 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="author" content="Network Intelligence">
+        <meta name="description" content="firewall management, security configuration, Fortinet, Algosec, Cisco, Tenable, Rapid 7, AWS, Azure">
+        <title>SOC Maturity Assessment</title>
+        <link href="css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="css%20%281%29/plugins.css" rel="stylesheet">
+        <link href="css%20%281%29/style.css" rel="stylesheet">
+		<link href="css%20%281%29/ab7.css" rel="stylesheet"> 
+        <link href="css%20%281%29/responsive.css" rel="stylesheet">
+        <script src='recaptcha/api.js'></script> 
+        <style>
+            .width30{
+                width: 85% !important;
+                max-height: 80px;
+            }
+            .brdr-box{
+                /*border:1px solid #efefef;*/
+                height: 150px;
+                display: table;
+                margin-bottom: 10px;
+            }
+            .brdr-box > div{
+                display: table-cell;
+                vertical-align: middle;
+                border:1px solid #efefef;
+                border-radius: 3px;
+            }
+            .container {
+                /*width: 100%;*/
+            }
+            
+            .media:first-child {
+                margin-top: 0;
+            }
+            .media {
+                overflow: visible;
+                margin-top: 30px;
+                height: 130px;
+            }
+            .blue-link a:link, .blue-link a:focus, .blue-link a:hover, .blue-link a:visited {
+                text-decoration: none;
+                color: #44ade2;
+            }
+
+            a.blue-link:link, a.blue-link:focus, a.blue-link:hover, a.blue-link:visited {
+                text-decoration: none;
+                color: #44ade2;
+            }
+            .tech-alliance .media{
+                height: 99px;
+            }
+            .tech-alliance .media .media-left{
+                height: 100%;
+            }
+            .media .img-circle {
+                /*height: 99px !important;*/
+                border: 1px solid #efefef;
+                width: 136px;
+                padding: 0;
+                background-color: #fff;
+                -moz-transition: all .5s;
+                -o-transition: all .5s;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+                display: block;
+                float: left;
+            }
+
+            .media-body, .media-left, .media-right {
+                display: table-cell;
+                vertical-align: top;
+            }
+            .media-left, .media>.pull-left {
+                padding-right: 10px;
+            }
+            .img-circle {
+                border-radius: 0% !important;
+            }
+            .media-body {
+                vertical-align: middle;
+                padding: 0 16px;
+                /*height: 136px;*/
+            }
+
+            .media-body, .media-left, .media-right {
+                display: table-cell;
+                vertical-align: top;
+            }
+            .media-body {
+                /*width: 10000px;*/
+            }
+            .media-body h3 {
+                padding-bottom: 10px;
+            }
+
+            h3 {
+                color: #3b3b3b;
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+            h1, h2, h3, h4, h5 {
+                margin: 0;
+                line-height: 1.2;
+            }
+            .media-body p {
+                font-size: 1em;
+                color: #494949;
+                line-height: 1.3em;
+                letter-spacing: -.5px;
+            }
+
+            p {
+                word-wrap: break-word;
+            }
+            p {
+                margin: 0 0 10px;
+            }
+            .no-margin-bottom{
+                margin-bottom: 0px !important;
+            }
+            .heading-title{
+                font-size: 16px;
+            }
+            .features .media{
+                margin-top: 0px;
+            }
+            .img-resp-wrapper {
+                overflow: hidden;
+                width: 100%;
+                height: 99px;
+                line-height: 99px;
+                text-align: center;
+                border: 1px solid #eee;
+            }
+            .resize_fit_center {
+                top: -3px;
+                max-width: 100%;
+                max-height: 100%;
+                max-height: 163px;
+                vertical-align: middle;
+                position: relative;
+                padding: 20px;
+            }
+            .tech-alliance {
+                margin-bottom: 30px;
+            }
+            @media (max-width: 767px){
+                .media .img-circle{
+                    width: 100%;
+                    height: auto;
+                }
+                .media{
+                    height: auto !important;
+                    margin-top: 0px !important;
+                }
+                .media-body{
+                    height: auto;
+                    padding: 10px 0px;
+                }
+                .right_side_solution{
+                    margin-top: 30px;
+                }
+                .img-resp-wrapper {
+                    /*margin-bottom: 20px;*/
+                }
+            }
+            
+            @media (max-width: 1200px){
+                .media .img-circle{
+                    width: 100%;
+                    height: auto;
+                }
+                .media{
+                    height: auto;
+                }
+                .media-body{
+                    height: auto;
+                    padding: 10px 0px;
+                }
+            }
+            @media (min-width: 996px){
+                #quizFormModal .modal-dialog{  
+                    width: 780px; 
+                }
+            }
+
+            #quizFormModal p{
+                font-size: 15px;
+                line-height: 32px;
+                font-weight: 600;
+                text-align: justify;
+            }
+            #quizFormModal .form-group label{
+                text-transform: none;
+                font-size: 18px;
+            }
+
+            #quizFormModal label.error{
+                color: #b71828;
+                font-weight: 400;
+                display: inline-block !important;
+                margin-top: 0;
+                margin-bottom: 0;
+                text-transform: capitalize;
+            }
+            
+            #quizProgressBar{ 
+                padding: 10px 0;
+            }
+
+            #quizProgress .progress-title{
+                margin-left: 0;
+                right: unset !important;
+                left: 64px;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: -40px !important;
+            }
+
+            #quizFormModal .progress-type{
+                right: unset !important;
+                left: 40px;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: -40px !important;
+            }
+
+            #quizFormModal .progress-number{
+                right: unset !important;
+                left: 20px;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: -40px !important;
+            }
+
+            #quizFormModal button.close{
+                font-size: 14px;
+            }
+
+            #quizFormModal .close .fa-times{
+                font-size: 18px;
+                left: 8px;
+                top: 5px;
+            }
+
+            #quePaginate{
+                position: absolute;
+                right: 15px;
+                margin-top: 10px;   
+            }
+            .iticks-pop-button{ display: none !important; }
+            .iticks-last-container{ display: none !important; }
+            @media (max-width: 991px)
+               #page-title .page-title>h1, #page-title.page-title-classic .page-title>h1 {
+                font-size: 30px;
+               margin-bottom: 0;
+            }
+            .btn.btn-color{
+            	background-color: grey;
+            	border-color: grey;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="gtag/js?id=UA-131749944-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131749944-1');
+</script>
+<script src="optimize.js?id=OPT-K243ZLB"></script>
+<div id="topbar" class="topbar-transparent topbar-fullwidth visible-md visible-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="top-menu">
+                    <li><a href="cdn-cgi/l/email-protection.html#224b4c444d624c4b4b414d4c51574e564b4c450c414d4f"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="7b12151d143b151212181415080e170f12151c55181416">[email&#160;protected]</span></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="social-icons social-icons-colored-hover">
+                    <ul>
+<li class="social-facebook"><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw=="><i class="fa fa fa-podcast"></i></a></li>
+                        <li class="social-facebook"><a target="_blank" href="https://www.facebook.com/NIIConsulting"><i class="fa fa-facebook"></i></a></li>
+                        <li class="social-twitter"><a target="_blank" href="https://twitter.com/niiconsulting"><i class="fa fa-twitter"></i></a></li>
+                        <li class="social-instagram"><a target="_blank" href="https://www.instagram.com/niiconsulting/"><i class="fa fa-instagram"></i></a></li>
+                        <li class="social-linkedin"><a target="_blank" href="https://www.linkedin.com/company/nii-consulting"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="social-youtube"><a target="_blank" href="https://www.youtube.com/channel/UCgxV86FZgYf7w197neRmBWQ"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: Topbar -->
+
+
+<!-- Header -->
+<header id="header" class="header-transparent header-fullwidth dark">
+    <div id="header-wrap">
+        <div class="container">
+            <!--Logo-->
+            <div id="logo">
+                <a href="index.htm" class="logo" data-dark-logo="https://www.niiconsulting.com/images/logo-sidebar.png">
+                    <img src="images/logo.jpg" alt="NII Logo">
+                </a>
+            </div>
+            <!--End: Logo-->
+
+            <!--Top Search Form-->
+<!--            <div id="top-search">
+                <form action="https://www.niiconsulting.com/search-results-page.html" method="get">
+                    <input type="text" name="q" class="form-control" value="" placeholder="Start typing & press  &quot;Enter&quot;">
+                </form>
+            </div>-->
+            <!--end: Top Search Form-->
+
+            <!--Header Extras-->
+<!--            <div class="header-extras">
+                <ul>
+                    <li>
+                        top search
+                        <a id="top-search-trigger" href="#" class="toggle-item">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        end: top search
+                    </li>
+
+                    <li>
+                        <div class="topbar-dropdown">
+                            <a class="title"><i class="fa fa-globe"></i></a>
+                            <div class="dropdown-list">
+                                <a class="list-entry" href="#">French</a>
+                                <a class="list-entry" href="#">Spanish</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+            <!--end: Header Extras-->
+
+            <!--Navigation Resposnive Trigger-->
+            <div id="mainMenu-trigger">
+                <button class="lines-button x"> <span class="lines"></span> </button>
+            </div>
+            <!--end: Navigation Resposnive Trigger-->
+
+
+            <!--Navigation-->
+            <div id="mainMenu" class="menu-right menu-onhover menu-lines">
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="index.htm">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="Products.html">Products</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="Firesec.html"><i class="fa fa-globe"></i>Firesec</a>
+                                    </li>
+                                    <li>
+                                        <a href="BlueScope.html"><i class="fa fa-table"></i>BlueScope</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="Services.html">Services</a>
+                                <ul class="dropdown-menu">
+                                    <!--<li class="dropdown-submenu">
+                                        <a href="https://www.niiconsulting.com/Solutions.html"><span class="dropdown-menu-title-only"><i class="fa fa-laptop"></i> Solutions</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/two-factor-authentication-2fa.html">2-Factor Authentication</a>
+                                            </li>
+                                                                                                <li>
+                                                <a href="https://www.niiconsulting.com/services/business-continuity-management.html">Business Continuity Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/application-whitelisting.html">Application Whitelisting</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/database-activity-monitoring.html">Database Activity Monitoring</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/data-leakage-prevention.html">Data Leakage Prevention</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/privileged-identity-management.html">Privileged Identity Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/information-rights-management.html">Information Rights Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/Mobile_Device_Management.html">Mobile Device Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/next-generation-firewalls.html">Next Generation Firewalls</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/source-code-analysis-review.html">Source Code Analysis</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/security-incident-event-management.html">Security Incident & Event Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/system-hardening.html">System Hardening</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/web-application-firewall.html">Web Application Firewalls</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/web-application-security.html">Web Application Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/wireless-security-solution.html">Wireless Security</a>
+                                            </li>
+                                        </ul>
+                                    </li>-->
+
+                                    <li class="dropdown-submenu ">
+                                        <a href="services/managed-security/security-operations-center-design.html"><span class="dropdown-menu-title-only"><i class="fa fa-random"></i> Managed Security Services</span></a>
+                                        <ul class="dropdown-menu drop-zero">
+                                            <li>
+                                                <a href="services/managed-security-services.html">Managed Security Services</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/managed-security/security-operations-center-design.html">SOC Design</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/managed-security/anti-phishing-site-down.html">Anti-Phishing</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/managed-security/managed-detection-as-a-service.html">Managed Detection as a Service</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/managed-security/threat-hunting.php.html">Threat Hunting</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="industrial_control_system.html"><i class="fa fa-list-alt"></i> ICS Security</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="cloud_security.html"><i class="fa fa-cloud"></i> Cloud Security</a>
+                                    </li>
+									<li class="dropdown-submenu">
+                                        <a href="Advisory.html"><span class="dropdown-menu-title-only"><i class="fa fa-list-alt"></i> Payment Security</span></a>
+                                        <ul class="dropdown-menu" style="top: 0px;">
+                                            <li>
+                                                <a href="services/advisory/pci-dss-qsa-asv-compliance-certification.html">PCI DSS QSA</a>
+                                            </li>
+											
+											<li>
+                                                <a href="services/advisory/pa-dss-payment-application-data-security-standard.html">PA DSS</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="services/business-continuity-management.html"><i class="fa fa-handshake-o"></i> BCMS</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="Assessment.html"><span class="dropdown-menu-title-only"><i class="fa fa-lightbulb-o"></i> Assessment</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="services/specialized/red-team-assessment.html">Red Team Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/application-security-audit.html">Application Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/mobile-security-testing.html">Mobile Security Testing</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/scada-assessment.html">SCADA and ICS</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/telecom-security-assessment.html">Telecom Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/sharepoint-security.html">Sharepoint Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/source-code-review.html">Source Code Review</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/network-performance-audit.html">Network Audit</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/wireless-auditing.html">Wireless Auditing</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/security-audit.html">Security Audit</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/penetration-testing-company.html">Penetration Testing</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/distributed-denial-of-service-assessment-ddos.html">DDoS Simulation</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/security-assessment/spear-phishing.html">Spear Phishing</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="services/specialized/red-team-assessment.html">War-Game Assessment</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="Advisory.html"><span class="dropdown-menu-title-only"><i class="fa fa-list-alt"></i> Security Compliances</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="services/advisory/iso27001.html">ISO 27001</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="services/advisory/risk-assessment.html">Risk Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/advisory/security-awareness.html">Security Awareness</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/advisory/iso20000-itil.html">ISO 20000/ITIL </a>
+                                            </li>
+                                            <li>
+                                                <a href="services/advisory/iso27004-information-security-metrics.html">Security Metrics</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/advisory/cobit-framework.html">COBIT Framework</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/advisory/hipaa-compliance-consulting.html">HIPAA</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="Remediation.html"><span class="dropdown-menu-title-only"><i class="fa fa-check-square"></i> Remediation</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="services/remediation/server-hardening.html">Server Hardening</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/remediation/network-redesign.html">Network Redesign</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/remediation/endpoint-security.html">Endpoint Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/remediation/application-redevelopment.html">Application Redevelopment</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/remediation/active-directory-and-group-policy-implementation.html">Active Directory and Group Policy Implementation</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="Breach_Response.html"><span class="dropdown-menu-title-only"><i class="fa fa-exchange"></i> Breach Response</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="services/breach-response/compromise-assessment.html">Compromise Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/breach-response/digital-forensics.html">Digital Forensics</a>
+                                            </li>
+                                            <li>
+                                                <a href="services/breach-response/financial-fraud-analysis-investigation.html">Financial Fraud Risk Management</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="trainings.html"><i class="fa fa-book"></i> Trainings</a>
+                                    </li>
+
+                                    <!-- <li class="dropdown-submenu">
+                                         <span class="dropdown-menu-title-only"><i class="fa fa-star"></i>Specialized</span>
+                                         <ul class="dropdown-menu">
+                                             
+                                         </ul>
+                                     </li>-->
+
+                                </ul>
+                            </li>
+                           <li class="dropdown">
+                                <a href="">Training</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="cwasp_training.html">Certified Web Application Security Professional (CWASP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="cpsp_training.php.html">Certified Payment Security Practitioner (CPSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="cpfa_training.html">Certified Professional Forensics Analyst (CPFA)</a>
+                                    </li>
+                                    <li>
+                                        <a href="cdpp_training.html">Certified Data Privacy Practitioner (CDPP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="cissp_training.html">Certified Information Systems Security Professional (CISSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="cdsp_training.html">Certified DevOps Security Practitioner (CDSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="SCCP_training.html">Secured Cloud Computing Practitioner (SCCP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="CTMA_training.html">Certified Threat & Malware Analyst (CTMA)</a>
+                                    </li>
+                                    <li>
+                                        <a href="CSOCP_training.html">Certified Security Operations Center Practitioner (CSOCP)</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="">Resources</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://niiconsulting.com/checkmate/">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="research/security-advisories.html">Security Advisories</a>
+                                    </li>
+                                    <!--<li>
+                                            <a href="Researchers.html">Researchers</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/news.html">Articles</a>
+                                    </li>-->
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0)">Annual Report</a>
+                                        <ul class="dropdown-menu" style="top: 0px;">
+                                            <li><a href="research/annual-cybersecurity-report-2019.html">Annual Report 2019</a>
+                                            </li>
+                                            <li><a href="research/annual-cybersecurity-report-2021.html">Annual Report 2021</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <!--<li>
+                                            <a href="Presentations.html">Presentations</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/innovation/whitepapers.html">Whitepapers</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/innovation/security-tools.html">Security Tools</a>
+                                    </li>-->
+<!--                                    <li>
+                                        <a href=""https://www.niiconsulting.com//innovation/books.html"">Books</a>
+                                    </li>-->
+                                    <li>
+                                        <a href="research/Books.html">Books</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0)">Whitepapers</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="whitepapers/Indian-Personal-Data-Protection-Bill.html">Indian Personal Data Protection Bill</a>
+                                            </li>
+                                            <li><a href="whitepapers/DevSecOps-A-Concept-Note.html">DevSecOps - A Concept note</a>
+                                            </li>
+                                            <li><a href="whitepapers/evolving-role-of-ciso.html">Evolving Role Of CISO</a>
+                                            </li>
+											<li><a href="whitepapers/NCA-ECC-Framework.html">NCA ECC Framework</a>
+                                            </li>
+                                            <li><a href="whitepapers/understanding-%26-comparing-privacy-laws.html">Comparing Certain Privacy Laws</a>
+                                            </li>
+                                            <li><a href="whitepapers/compromise-assessment.html">Compromise Assessment</a>
+                                            </li>
+                                            <li><a href="whitepapers/Digital-Forensics-and-Incident-Response.html">Digital Forensics and Incident Response</a>
+                                            </li>
+                                            <li><a href="whitepapers/iso-27001-isms.html">ISO 27001 [ISMS]</a>
+                                            </li>
+                                            <li><a href="whitepapers/SAMA-Framework.html">SAMA Framework</a>
+                                            </li>
+                                            <li><a href="whitepapers/GDPR_Compliance_Australia.html">GDPR_Compliance_Australia</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="SOC-Maturity-assessment-quiz.html">SOC Maturity Assessment</a></li>
+                                </ul>
+                            </li>
+                            <!--<li class="dropdown">
+                                <a href="Showcase.html">Showcase</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/scada-security-assessment.html"><i class="fa fa-shield"></i>SCADA Security Assessment</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/mobile-security-assessment.html"><i class="fa fa-mobile"></i>Mobile Security Assessment</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/telecom-security-assessment.html"><i class="fa fa-phone"></i>Telecom Security Assessment</a>
+                                    </li>
+                                </ul>
+                            </li>-->
+                            <li>
+                                <a href="https://niiconsulting.com/checkmate/">Blog</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="company.html">Company</a>
+                                <ul class="dropdown-menu">
+<!--                                    <li>
+                                        <a href="https://www.niiconsulting.com/company.html "><i class="fa fa-building"></i>Company</a>
+                                    </li>-->
+                                    <li>
+                                        <a href="company/management-team.html"><i class="fa fa-users"></i>Management Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="company/clients.html"><i class="fa fa-diamond"></i>Clients</a>
+                                    </li>
+                                    <li>
+                                        <a href="Careers.html"><i class="fa fa-user"></i>Careers</a>
+                                    </li>
+                                     <li>
+                                        <a href="company/hall-of-fame.html"><i class="fa fa-user"></i>Hall Of Fame</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="Contact_Us.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--end: Navigation-->
+        </div>
+    </div>
+</header>
+<!-- end: Header -->
+            <!-- end: Header -->
+
+            <!-- Page title -->
+            <!--<section id="page-title" class="page-title-center text-light background-overlay-dark" style="background-image:url(https://www.niiconsulting.com/images/pages/Image.jpeg);background-size: cover;">-->
+            <section id="page-title" class="page-title-center text-light background-overlay-dark" style="background-image:url(images/pages/Image2.jpg);background-size: cover;background-position: center;">
+                <div class="container">
+                    <div class="page-title">
+                        <span class="post-meta-category"><a href=""></a></span>
+                        <h1>SOC Maturity Assessment</h1>
+                    </div>
+                </div>
+            </section>
+            <!-- end: Page title -->
+
+            <!-- Page Content -->
+
+            <section id="page-content" class="sidebar-right">
+                <div class="container">
+                    <div class="row">
+                        <!-- content -->
+                        <div class="content col-md-9">
+                            <!-- Blog -->
+                            <div id="blog" class="single-post">
+                                <!-- Post single item-->
+                                <div class="post-item">
+                                    <div class="post-item-wrap">
+                                        <div class="post-item-description"> 
+                                            <div class="post-meta">
+                                                <span class="post-meta-category">
+                                                    <i class="fa fa-tag"></i><a href="index.htm">Home</a> > 
+                                                    <a href="Products.html">Resources</a> > 
+                                                    SOC Maturity Assessment
+                                                </span>
+                                                <div class="post-meta-share">
+                                                    <a class="btn btn-xs btn-slide btn-facebook" href="login-66.php?u=https%3A%2F%2Fwww.niiconsulting.com%2FSOC-Maturity-assessment-quiz.html" target="_blank">
+                                                        <i class="fa fa-facebook"></i>
+                                                        <span>Facebook</span>
+                                                    </a>
+                                                    <a class="btn btn-xs btn-slide btn-twitter" href="https://twitter.com/share?url=https%3A%2F%2Fwww.niiconsulting.com%2FSOC-Maturity-assessment-quiz.html" target="_blank">
+                                                        <i class="fa fa-twitter"></i>
+                                                        <span>Twitter</span>
+                                                    </a>
+                                                    <a class="btn btn-xs btn-slide btn-instagram" href="https://www.instagram.com/?url=https%3A%2F%2Fwww.niiconsulting.com%2FSOC-Maturity-assessment-quiz.html" target="_blank">
+                                                        <i class="fa fa-instagram"></i>
+                                                        <span>Instagram</span>
+                                                    </a>
+                                                    <a class="btn btn-xs btn-slide btn-googleplus" href="cdn-cgi/l/email-protection.html#3950575f56795750505a56574a4c554d50575e175a5654" data-width="80">
+                                                        <i class="fa fa-envelope"></i>
+                                                        <span>Mail</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <p>
+                                            <div class="row">
+                                               <div class="col-sm-12">
+                                                   <p style="text-align: justify;">Cyber-attacks can have a massive impact on any company. As per Cybersecurity Venture’s 2020 report, cyberattacks are projected to hit $6 Trillion in annual losses in 2021 which is a number that has doubled since 2015. A cyber-incident can negatively influence customer confidence and ruin the brand reputation of a company built over many years.</p>
+                                                   <p style="text-align: justify;">With advancements in technology, security is becoming increasingly complex. In order to manage these risks, it is imperative that organization adopt continuous security monitoring. This is best achieved via a Security Operations Centre (SOC) that could be either in-house or completely outsourced.</p>
+                                                   <p style="text-align: justify;"><a href="services/managed-security-services.html" target="_blank">Network Intelligence's</a> SOC Maturity model is a vendor-agnostic and SIEM-agnostic self-assessment tool. It has been developed based on our experience of managing SOCs for clients across industries and geographies for more than a decade.</p>
+                                                   <p style="text-align: justify;">This quiz enables you to self-assess the current state of your SOC. Based on the score, it provides pointers to improve the SOC's performance so that you can detect threats and respond to them faster, thereby enhancing your organization’s cyber resilience.</p>
+                                               </div>                                         
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                               <div class="col-sm-12 text-center">
+                                                   <button class="btn btn-primary btn-lg" id="openQuizPopUp"><i class="fa fa-play"></i>Start the Quiz</button>
+                                               </div>                                         
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Comments -->
+                                        <!-- end: Comments -->
+                                    </div>
+                                </div>
+                                <!-- end: Post single item-->
+                            </div>
+                        </div>
+                        <!-- end: content -->
+
+                        <!-- Sidebar-->
+                        <div class="sidebar col-md-3">
+                            <div class="pinOnScroll">
+                                <!--widget newsletter-->
+                                <div class="widget  widget-newsletter">
+
+                                    <form id="widget-search-form-sidebar" action="https://www.niiconsulting.com/search-results-page.html" method="get" class="form-inline">
+                                        <div class="input-group">
+                                            <input type="text" aria-required="true" name="q" class="form-control widget-search-form" placeholder="Search for pages...">
+                                            <span class="input-group-btn">
+                                                <button type="submit" id="widget-widget-search-form-button" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </span> </div>
+                                    </form>
+                                </div>
+                                <!--end: widget newsletter-->
+
+                                <!--Tabs with Posts-->
+                                <div class="widget">
+                                    <div id="tabs-01" class="tabs simple">
+                                        <ul class="tabs-navigation">
+                                            <li class="active"><a href="#tab1">SOC</a> </li>
+                                            <li class=""><a href="#tab2">Products</a> </li>
+                                            <li class=""><a href="#tab3">Blog</a> </li>
+                                        </ul>
+                                        <div class="tabs-content">
+                                            <div class="tab-pane active" id="tab1">
+                                                <div class="post-thumbnail-list">
+    <div class="post-thumbnail-entry">
+        <img alt="" src="images/Thumbnils/Managed_Security_Services.jpg">
+        <div class="post-thumbnail-content">
+            <a href="services/managed-security-services.html">Managed Security Services</a>
+
+
+        </div>
+    </div>
+    <div class="post-thumbnail-entry">
+        <img alt="" src="images/Thumbnils/SOC_Design.jpg">
+        <div class="post-thumbnail-content">
+            <a href="services/managed-security/security-operations-center-design.html">SOC Design</a>
+
+
+        </div>
+    </div>
+    <div class="post-thumbnail-entry">
+        <img alt="" src="images/Thumbnils/Anti-Phishing.jpg">
+        <div class="post-thumbnail-content">
+            <a href="services/managed-security/anti-phishing-site-down.html">Anti-Phishing</a>
+
+
+        </div>
+    </div>
+    <div class="post-thumbnail-entry">
+        <img alt="" src="images/Thumbnils/Decoys_as_a_Service.jpg">
+        <div class="post-thumbnail-content">
+            <a href="services/managed-security/managed-detection-as-a-service.html">Managed Detection as a Service</a>
+
+
+        </div>
+    </div>
+</div>
+                                            </div>
+                                            <div class="tab-pane" id="tab2">
+                                                <div class="post-thumbnail-list">
+                                                    <div class="post-thumbnail-entry">
+                                                        <img alt="" src="images/blog/thumbnail/6.jpg">
+                                                        <div class="post-thumbnail-content">
+                                                            <a href="Firesec.html">Firesec</a>
+
+                                                            <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="post-thumbnail-entry">
+                                                        <img alt="" src="images/blog/thumbnail/7.jpg">
+                                                        <div class="post-thumbnail-content">
+                                                            <a href="BlueScope.html">BlueScope</a>
+
+                                                            <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="tab3">
+                                                <div class="post-thumbnail-list">
+                                                    <div class="post-thumbnail-list">
+                                                        <div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/kickstart-your-holiday-spirit-with-some-cybersecurity-binge-watching/" target="_blank">Kickstart your holiday spirit with some cybersecurity binge watching!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 21, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+<div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/make-it-to-santas-nice-cybersecurity-list/" target="_blank">Make it to Santa’s ‘Nice’ Cybersecurity list!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 20, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+<div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/tis-the-season-to-beware-of-online-scammers-fa-la-la-la-la-la-la-la-la/" target="_blank">T’is The Season To Beware Of Online Scammers, Fa-la-la-la-la, la-la-la-la!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 13, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End: Tabs with Posts-->
+
+                                <!-- Twitter widget -->
+                                <div class="widget widget-tweeter" data-username="envato" data-limit="2">
+                                    <h4 class="widget-title">Recent Tweets</h4>
+                                </div>
+                                <!-- end: Twitter widget-->
+
+                                <!--widget tags -->
+                                <!--end: widget tags -->
+
+
+                            </div>
+                        </div>
+                        <!-- end: sidebar-->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="quizFormModal" tabindex="-1" role="modal" aria-labelledby="modal-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" data-dismiss="modal" aria-hidden="true" class="btn btn-xs btn-slide btn-color close">
+                                <i class="fa fa-times"></i>
+                                <span>Close</span>
+                            </button>
+                            <h4 class="modal-title" id="modal-label">SOC Maturity Assessment Quiz</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label id="quePaginate">Q&nbsp;<span id="currentQue">1</span>/<span>9</span></label>
+
+                                    <div class="progress-bar-container radius title-up" id="quizProgress" style="margin-bottom: 15px;">
+                                        <div class="progress-bar" id="quizProgressBar" data-percent="0" data-delay="1000" data-type="">
+                                            <div class="progress-title">Progress Completed</div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="quiz_unique_id" id="quiz_unique_id" value="">
+                                    <input type="hidden" name="lead_source" id="lead_source" value="">
+                                    <form id="quizQueForm1" class="" role="form" method="post">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="1">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q1. How would you describe your security information and event management (SIEM) maturity?</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1"> We do not have an SIEM</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">We consume system logs only</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">We consume system logs, flows, and have packet capture capabilities</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4"> Our platform has ML based UEBA capabilities</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">Our platform fully supports orchestration and incident response</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm2" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="2">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q2. Describe your monitoring team</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">We do not have trained analysts or a dedicated monitoring team</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">We perform ad-hoc monitoring for compliance purposes</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">We have a 8x5 monitoring team with basic skill set</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">We have 24x7 monitoring with a third-party vendor</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">We have a 24x7 monitoring with team of heterogenous skillset</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm3" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="3">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q3. Select additional SOC capabilities that exist in your environment</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">Red Team conducted periodically</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">Breach Readiness exercise conducted periodically</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">Threat Hunting conducted periodically</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">Anti-Phishing and social media monitoring</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">Dark web monitoring</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm4" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="4">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q4. Describe the use cases being monitored by the SOC team</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">We do not have any use cases under monitoring</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">We use Standard/Default use cases</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">Our team has developed correlated use cases</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">We use anomaly and behavior based use cases</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">We have machine learning based use cases</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm5" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="5">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q5. How does your organization/SOC consume Threat Intelligence (TI)?</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">We do not consume TI</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">We use open source TI</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">We use premium TI</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">We have a Threat Intel Platform (TIP) which collates, scores and removes false positives.</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">We have a TIP and we also perform risk-based TI collection specific to our domain.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm6" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q6. How would you describe your incident response team capabilities?</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">Non-existent</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">IT Team responds to incidents raised by SOC</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">Incident Response is done on Ad-hoc basis</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">8x5 Incident Response team looking at critical and high incidents</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5"> 24x7 Incident Response team. All SOC incidents are sent to IR team for investigation. </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm7" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="7">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q7. How would you rate your organization’s endpoint and server level visibility</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">Non-existent</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2"> AV deployed on few endpoints and servers for compliance</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">FIM and AV deployed on production and DMZ servers</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">FIM and EDR deployed on all production and critical servers/endpoints</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">FIM, DLP and EDR deployed on all endpoints and servers</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm8" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q8. Tell us about your SOC’s Key Performance Indicators</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">We do not measure KPIs for SOC </label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">Few KPIs tracked for internal compliance</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">KPIs are  well defined and measured frequently</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">KPIs are in line with SOC vision and mission and measured manually on a periodic basis</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">KPIs are fully matured and measured automatically on real-time basis.</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Next</button>
+                                    </form>
+
+                                    <form id="quizQueForm9" class="" role="form" method="post" style="display: none;">
+                                        <input type="hidden" name="quiz_que_no" id="quiz_que_no" value="9">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="que1">Q9. How would you rate your vulnerability management capabilities?</label>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="1">Non-existent or ad-hoc</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="2">Compliance-based</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="3">Defined frequency – monthly/quarterly</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="4">Continuous and fully integrated with change management. All new systems are scanned/fixed before go-live</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                      <label><input type="radio" name="quiz_anw_no" value="5">Defined internal policy on closure of findings and is integrated with SIEM for complete visibility</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-primary back-quiz-form">Previous</button>&nbsp;&nbsp;
+                                        <button class="btn btn-default submit-quiz-form" type="submit" id="form-submit">Submit</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end: Page Content -->
+            <!-- Footer -->
+            ﻿<footer id="footer" class="footer-light">
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Footer widget area 1 -->
+                    <div class="widget  widget-contact-us" style="background-image: url('images/world-map-dark.png'); background-position: 50% 20px; background-repeat: no-repeat">
+                        <h4>COMPANY DETAILS</h4>
+                        <ul class="list-icon">
+                            <li style="font-size:13px;">
+                                <i class="fa fa-map-marker"></i>New York | Amsterdam | Sydney | Dubai | Riyadh | Mumbai | Singapore<br>
+                            </li>
+                            <li><i class="fa fa-envelope"></i> <a href="cdn-cgi/l/email-protection.html#7e171018113e1017171d11100d0b120a171019501d1113"><span class="__cf_email__" data-cfemail="e881868e87a88681818b87869b9d849c81868fc68b8785">[email&#160;protected]</span></a> </li>
+                        </ul>
+                        <!-- Social icons -->
+                        <div class="social-icons social-icons-border float-left m-t-20">
+                            <ul>
+                                <li class="social-facebook"><a href="https://www.facebook.com/NIIConsulting" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li class="social-twitter"><a href="https://twitter.com/niiconsulting" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social-youtube"><a href="https://www.linkedin.com/company/nii-consulting" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="social-youtube"><a href="https://www.youtube.com/channel/UCgxV86FZgYf7w197neRmBWQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                <li class="social-instagram"><a href="https://www.instagram.com/niiconsulting/"><i class="fa fa-instagram"></i></a></li>
+<li class="social-instagram"><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw=="><i class="fa fa-podcast"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- end: Social icons -->
+                    </div>
+                    <!-- end: Footer widget area 1 -->
+                </div>
+                <div class="col-md-2">
+                    <!-- Footer widget area 2 -->
+                    <div class="widget">
+                        <h4>Quick LInks</h4>
+                        <ul class="list-icon list-icon-arrow">
+                           <li><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw==">Tune into our Podcasts</a></li>
+                            <li><a href="company.html">About</a></li>
+                            <li><a href="Contact_Us.html">Contact</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="https://niiconsulting.com/checkmate/">Blog</a></li>
+                            <li><a href="Services.html">Services</a></li>
+                            <li><a href="research/security-advisories.html">Security Advisories</a></li>
+                        </ul>
+                    </div>
+                    <!-- end: Footer widget area 2 -->
+                </div>
+                <div class="col-md-3">
+                    <!-- Footer widget area 3 -->
+                    <div class="widget">
+                        <h4>Latest From Our Blog</h4>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/kickstart-your-holiday-spirit-with-some-cybersecurity-binge-watching/" target="_blank">Kickstart your holiday spirit with some cybersecurity binge watching!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 21, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/make-it-to-santas-nice-cybersecurity-list/" target="_blank">Make it to Santa’s ‘Nice’ Cybersecurity list!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 20, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/tis-the-season-to-beware-of-online-scammers-fa-la-la-la-la-la-la-la-la/" target="_blank">T’is The Season To Beware Of Online Scammers, Fa-la-la-la-la, la-la-la-la!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 13, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                           
+                    </div>
+                    <!-- end: Footer widget area 3 -->
+                </div>
+                <div class="col-md-3">
+                    <!-- Footer widget area 4 -->
+                    <div class="widget widget-tweeter1" data-limit="2">
+                        <h4>Follow Us On Twitter</h4>
+                        <a data-chrome="nofooter" class="twitter-timeline" data-height="210" href="https://twitter.com/niiconsulting?ref_src=twsrc%5Etfw">Tweets by niiconsulting</a> <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async="" src="widgets.js" charset="utf-8"></script>
+                        <!--<embed src="https://www.linkedin.com/biz/nii-consulting/feed?start=0&v2=true">-->			
+                    </div>
+                    <!-- end: Footer widget area 4 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-content">
+        <div class="container">
+            <div class="text text-center">Copyright &copy; 2022. All Rights Reserved by Network Intelligence</div>
+        </div>
+    </div>
+</footer>
+<script type='text/javascript'>
+    (function (I, _, T, i, c, k, s) {
+        if (I.iticks)
+            return;
+        I.iticks = {host: c, settings: s, clientId: k, cdn: _, queue: []};
+        var h = T.head || T.documentElement;
+        var e = T.createElement(i);
+        var l = I.location;
+        e.async = true;
+        e.src = (_ || c) + '/client/inject.min.js';
+        h.insertBefore(e, h.firstChild);
+        I.iticks.call = function (a, b) {
+            I.iticks.queue.push([a, b]);
+        };
+    })(window, 'https://d25ok8ck9cwr91.cloudfront.net', document, 'script', 'https://app.intelliticks.com', 'g52MA6jhi6tqmewSq_c', {});
+</script>
+
+<script type="text/javascript">
+_linkedin_partner_id = "1253508";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="d/px/index.htm?pid=1253508&fmt=gif">
+</noscript>
+<script>
+
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/187805/script.js');
+
+</script>            <!-- end: Footer -->
+
+        </div>
+        <!-- end: Wrapper -->
+
+        <!-- Go to top button -->
+        <a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>
+
+        <!--Plugins-->
+        <script src="js/jquery.js"></script>     
+        <script src="js/validate/jquery.validate.js"></script> 
+        <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>-->
+        
+        <script>
+            $(document).ready(function () {
+                // Set Token
+                                    localStorage.setItem("csrf_token", "fb947dad0e8d2aad53cc6c1a17a8dbf6");
+                
+                // console.log("csrf_token =>"+localStorage.getItem("csrf_token"));
+                var quiz_unique_id = '1647213808';
+                // console.log(quiz_unique_id)
+                // openQuizPopUp
+                $("#page-content").on("click","#openQuizPopUp", function(){
+                    $("#quizFormModal").modal('show');
+                    $("#quiz_unique_id").val(quiz_unique_id);
+                });
+
+                
+                // startQuizBtn
+                /*$("#quizFormModal").on("click","#startQuizBtn", function(){
+                    $("#quePaginate").show();
+                    $("#quizProgress").show();
+                    $("#quizQueForm1").show();
+                    $("#quizStartContent").hide();
+                    $("#quizFormModalAlert").hide();
+                });*/
+
+                // submit-quiz-form
+                $("#quizFormModal").on("click",".back-quiz-form", function(){
+                    // 
+                    var form_id = $( this ).closest('form').attr('id');
+                    var quiz_que_no = $("#"+form_id+" #quiz_que_no").val();
+                    // Get previous form no
+                    var previous_form_no = (parseInt(quiz_que_no) - 1);
+                    // Current Que No
+                    $("#currentQue").text(previous_form_no);
+                    if(previous_form_no > 0){
+                        // Show & Hide Forms
+                        $("#quizQueForm"+quiz_que_no).hide();
+                        $("#quizQueForm"+previous_form_no).show();
+                    }
+
+                    // Progress Bar Logic => START
+                    var total_que = 9;
+                    var get_total_per = 0;
+                    var total_per = 0;
+                    if(previous_form_no == 1){
+                        // $("#quizProgressBar .progress-title").text(total_per+'%');
+                        $("#quizProgressBar").attr('data-percent', '').css('width', 0+'%').css('padding-left', '0').css('padding-right', '0');
+                        $("#quizProgressBar .progress-number").text(0);
+                    } else {
+                        get_total_per = parseFloat(((previous_form_no - 1) / total_que) * 100);
+                        total_per = Math.round(get_total_per);
+                        $("#quizProgressBar").attr('data-percent', total_per).css('width', total_per+'%').css('padding-left', '10px').css('padding-right', '10px');
+                        $("#quizProgressBar .progress-number").text(total_per);
+                    }
+                    // Progress Bar Logic => END
+
+                });
+
+                // submit-quiz-form
+                $("#quizFormModal").on("click",".submit-quiz-form", function(){
+                    // 
+                    var form_id = $( this ).closest('form').attr('id');
+                    var quiz_unique_id = $("#quiz_unique_id").val();
+                    // alert(form_id); // return false;
+                    $("#"+form_id).validate({
+                        rules: {
+                            "quiz_anw_no": {
+                                required: true
+                            }
+                        },
+                        messages: {
+                            "quiz_anw_no": {
+                                required: "Please Select Answer"
+                            }
+                        },
+                        errorPlacement: function(error, element) {
+                            console.log(element.attr("name"));
+                            // Custom position
+                            if (element.attr("name") == "quiz_anw_no" ) {
+                                $("#"+form_id+" .form-group .radio").last().after(error);
+                            } else {
+                                error.insertAfter(element);
+                            }
+                        },
+                        submitHandler: function (form) {
+                            // 
+                            var reqUrl = 'https://www.niiconsulting.com/include/quiz-form-submit.php';
+                            var leadSource = $('#lead_source').val();
+                            var reqData = $('#'+form_id).serialize()+'&quiz_unique_id=' + quiz_unique_id+'&source=' +leadSource;
+                            var quiz_que_no = $("#"+form_id+" #quiz_que_no").val();
+                            // alert(quiz_unique_id+ ' - ' +quiz_que_no);
+                            // alert(reqUrl+' - '+reqData); // return false;
+                            $.ajax({
+                                type: "POST",
+                                url: reqUrl,
+                                headers: { 
+                                    'X-Authorization': localStorage.getItem('csrf_token'),
+                                },
+                                data: reqData,
+                                dataType: "json",
+                                beforeSend: function() {
+                                    // Show Loader
+                                    $("#"+form_id+" .submit-quiz-form").html('<i class="fa fa-spinner fa-pulse fa-lg fa-fw"></i>');
+                                    // Add Disabled
+                                    $("#"+form_id+" .submit-quiz-form").prop('disabled', true);
+                                },
+                                complete: function() {
+                                    // Hide Loader
+                                    $("#"+form_id+" .submit-quiz-form").html('Submit');
+                                    // Remove Disabled
+                                    $("#"+form_id+" .submit-quiz-form").prop('disabled', false);
+                                },
+                                success: function(response) {
+                                    var status = response.status;
+                                    var message = response.message;
+                                    // alert(status); return false;
+                                    if (status == 1) {
+                                        // If Success
+                                        // $("#quizFormModalAlert").html(message).addClass('alert-success').fadeIn('slow');
+                                        // setTimeout(function() { $("#quizFormModalAlert").hide().html('').removeClass('alert-success'); }, 8000);
+                                        // Progress Bar Logic => START
+                                        var total_que = 9;
+                                        var get_total_per = 0;
+                                        var total_per = 0;
+                                        get_total_per = parseFloat((quiz_que_no / total_que) * 100);
+                                        total_per = Math.round(get_total_per);
+                                        // console.log(total_per);
+                                        if(quiz_que_no == 9) {
+                                            $('.progress-type').css('margin-left', '11px');
+                                            $('.progress-title').css('margin-left', '10px');
+                                        }
+                                        $("#quizProgressBar").attr('data-percent', total_per).css('width', total_per+'%').css('padding', '10px');
+                                        $("#quizProgressBar .progress-number").text(total_per);
+                                        // if(total_per > 0){
+                                        //     $("#quizProgressBar .progress-title").text('');
+                                        // }
+                                        // Progress Bar Logic => END
+                                        // 
+                                        if(quiz_que_no != 9) {
+                                            var next_form_no = (parseInt(quiz_que_no) + 1);
+                                            // Current Que No
+                                            $("#currentQue").text(next_form_no);
+                                        }
+                                        if(quiz_que_no >= 9){
+                                            // 
+                                            window.location.href = "https://www.niiconsulting.com/security-quiz-register.php?uquiz="+quiz_unique_id;
+                                        } else {
+                                            // Show & Hide Forms
+                                            $("#quizQueForm"+quiz_que_no).hide();
+                                            $("#quizQueForm"+next_form_no).show();
+                                        }
+                                    } else {
+                                        // If Failed
+                                        $("#quizQueFormAlert").html(message).addClass('alert-danger').fadeIn('slow');
+                                        setTimeout(function() { $("#quizQueFormAlert").hide().html('').removeClass('alert-danger'); }, 5000);
+                                        return false;
+                                    }
+                                },
+                                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                    if (XMLHttpRequest.readyState == 4) {
+                                        // HTTP error (can be checked by XMLHttpRequest.status and XMLHttpRequest.statusText)
+                                        alert(textStatus);
+                                        return false;
+                                    }
+                                    else if (XMLHttpRequest.readyState == 0) {
+                                        // Network error (i.e. connection refused, access denied due to CORS, etc.)
+                                        alert("Network error: connection refused.");
+                                        return false;
+                                    }
+                                    else {
+                                        alert("Something weird is happening");
+                                        return false;
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+
+            });
+            
+                            /* $("html, body").animate({ scrollTop: 3100 }, 2000); */
+                    </script>
+        
+        
+        <script src="js/plugins.js"></script>
+        <!--Template functions-->
+        <script src="js/functions.js"></script>
+        
+    </body>
+
+</html>

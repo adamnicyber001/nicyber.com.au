@@ -1,0 +1,1640 @@
+﻿    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../../css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="author" content="Network Intelligence">
+        <meta name="keywords" content="Redteam assessment,Red team services provider,Red Team Assessment Service in Mumbai,Red Team Assessment Service in India,Red Team Assessment Service in USA,Red Team Assessment Service in Dubai,red team assessment cyber security,red team security services,red team companies,rta consultants">
+        <meta name="description" content="Network Intelligence provides Red team security assessment including, security, threat & vulnerability assessment penetration testing Services in India, UAE & US.">
+        <title>Threat Hunting</title>
+        <link href="../../css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="../../css%20%281%29/plugins.css" rel="stylesheet">
+        <link href="../../css%20%281%29/style.css" rel="stylesheet">
+        <link href="../../css%20%281%29/style2.css" rel="stylesheet">
+		<link href="../../css%20%281%29/ab7.css" rel="stylesheet"> 
+        <link href="../../css%20%281%29/responsive.css" rel="stylesheet">
+        <script src='../../recaptcha/api.js'></script>
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-52T7K6Z');</script>
+        <!-- End Google Tag Manager -->
+        <style type="text/css">
+        .assessment-icon{
+            font-size: 20px;
+            margin: 0px 10px;
+        }
+        .error{
+            color:red;
+        }
+        .Metrics ol li
+        {
+            font-size: 16px
+        }
+        #header
+        {
+            padding: 0px
+        }
+        .num-box1
+        {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            position: absolute;
+            top: 47px;
+            left: 91%; 
+        }
+        .num-box2
+        {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            position: absolute;
+            top: 47px;
+            left: -40px; 
+        }
+        .Hypothesis1 {
+            border: 6px solid #11cdef;
+            padding: 15px 50px;
+           border-radius: 10px;
+           position: relative;
+           margin: 20px 0;
+           height: 195px;
+           font-size: 13px;
+           line-height: 1.5
+       }
+       .one-forth
+       {
+        margin: 0px
+       }
+       .heding-hed
+       {
+        padding: 0px
+       }
+       .tab-sec
+       {
+        padding: 0px
+       }
+   
+}
+    </style>
+    </head>
+    <!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<!-- <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "eu1",
+    portalId: "25399008",
+    formId: "e63b8a87-0179-45aa-8183-453f77567496"
+});
+</script> -->
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52T7K6Z" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <!-- Wrapper -->
+        <div id="wrapper">
+            <!-- Header -->
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="../../gtag/js?id=UA-131749944-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131749944-1');
+</script>
+<script src="../../optimize.js?id=OPT-K243ZLB"></script>
+<div id="topbar" class="topbar-transparent topbar-fullwidth visible-md visible-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul class="top-menu">
+                    <li><a href="../../cdn-cgi/l/email-protection.html#c1a8afa7ae81afa8a8a2aeafb2b4adb5a8afa6efa2aeac"><i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="f29b9c949db29c9b9b919d9c81879e869b9c95dc919d9f">[email&#160;protected]</span></a></li>
+                </ul>
+            </div>
+            <div class="col-sm-6 hidden-xs">
+                <div class="social-icons social-icons-colored-hover">
+                    <ul>
+<li class="social-facebook"><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw=="><i class="fa fa fa-podcast"></i></a></li>
+                        <li class="social-facebook"><a target="_blank" href="https://www.facebook.com/NIIConsulting"><i class="fa fa-facebook"></i></a></li>
+                        <li class="social-twitter"><a target="_blank" href="https://twitter.com/niiconsulting"><i class="fa fa-twitter"></i></a></li>
+                        <li class="social-instagram"><a target="_blank" href="https://www.instagram.com/niiconsulting/"><i class="fa fa-instagram"></i></a></li>
+                        <li class="social-linkedin"><a target="_blank" href="https://www.linkedin.com/company/nii-consulting"><i class="fa fa-linkedin"></i></a></li>
+                        <li class="social-youtube"><a target="_blank" href="https://www.youtube.com/channel/UCgxV86FZgYf7w197neRmBWQ"><i class="fa fa-youtube-play"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: Topbar -->
+
+
+<!-- Header -->
+<header id="header" class="header-transparent header-fullwidth dark">
+    <div id="header-wrap">
+        <div class="container">
+            <!--Logo-->
+            <div id="logo">
+                <a href="../../index.htm" class="logo" data-dark-logo="https://www.niiconsulting.com/images/logo-sidebar.png">
+                    <img src="../../images/logo.jpg" alt="NII Logo">
+                </a>
+            </div>
+            <!--End: Logo-->
+
+            <!--Top Search Form-->
+<!--            <div id="top-search">
+                <form action="https://www.niiconsulting.com/search-results-page.html" method="get">
+                    <input type="text" name="q" class="form-control" value="" placeholder="Start typing & press  &quot;Enter&quot;">
+                </form>
+            </div>-->
+            <!--end: Top Search Form-->
+
+            <!--Header Extras-->
+<!--            <div class="header-extras">
+                <ul>
+                    <li>
+                        top search
+                        <a id="top-search-trigger" href="#" class="toggle-item">
+                            <i class="fa fa-search"></i>
+                        </a>
+                        end: top search
+                    </li>
+
+                    <li>
+                        <div class="topbar-dropdown">
+                            <a class="title"><i class="fa fa-globe"></i></a>
+                            <div class="dropdown-list">
+                                <a class="list-entry" href="#">French</a>
+                                <a class="list-entry" href="#">Spanish</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+            <!--end: Header Extras-->
+
+            <!--Navigation Resposnive Trigger-->
+            <div id="mainMenu-trigger">
+                <button class="lines-button x"> <span class="lines"></span> </button>
+            </div>
+            <!--end: Navigation Resposnive Trigger-->
+
+
+            <!--Navigation-->
+            <div id="mainMenu" class="menu-right menu-onhover menu-lines">
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="../../index.htm">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="../../Products.html">Products</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="../../Firesec.html"><i class="fa fa-globe"></i>Firesec</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../BlueScope.html"><i class="fa fa-table"></i>BlueScope</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="../../Services.html">Services</a>
+                                <ul class="dropdown-menu">
+                                    <!--<li class="dropdown-submenu">
+                                        <a href="https://www.niiconsulting.com/Solutions.html"><span class="dropdown-menu-title-only"><i class="fa fa-laptop"></i> Solutions</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/two-factor-authentication-2fa.html">2-Factor Authentication</a>
+                                            </li>
+                                                                                                <li>
+                                                <a href="https://www.niiconsulting.com/services/business-continuity-management.html">Business Continuity Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/application-whitelisting.html">Application Whitelisting</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/database-activity-monitoring.html">Database Activity Monitoring</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/data-leakage-prevention.html">Data Leakage Prevention</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/privileged-identity-management.html">Privileged Identity Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/information-rights-management.html">Information Rights Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/Mobile_Device_Management.html">Mobile Device Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/next-generation-firewalls.html">Next Generation Firewalls</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/source-code-analysis-review.html">Source Code Analysis</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/security-incident-event-management.html">Security Incident & Event Management</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/system-hardening.html">System Hardening</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/web-application-firewall.html">Web Application Firewalls</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/web-application-security.html">Web Application Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.niiconsulting.com/solutions/wireless-security-solution.html">Wireless Security</a>
+                                            </li>
+                                        </ul>
+                                    </li>-->
+
+                                    <li class="dropdown-submenu ">
+                                        <a href="security-operations-center-design.html"><span class="dropdown-menu-title-only"><i class="fa fa-random"></i> Managed Security Services</span></a>
+                                        <ul class="dropdown-menu drop-zero">
+                                            <li>
+                                                <a href="../managed-security-services.html">Managed Security Services</a>
+                                            </li>
+                                            <li>
+                                                <a href="security-operations-center-design.html">SOC Design</a>
+                                            </li>
+                                            <li>
+                                                <a href="anti-phishing-site-down.html">Anti-Phishing</a>
+                                            </li>
+                                            <li>
+                                                <a href="managed-detection-as-a-service.html">Managed Detection as a Service</a>
+                                            </li>
+                                            <li>
+                                                <a href="threat-hunting.php.html">Threat Hunting</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="../../industrial_control_system.html"><i class="fa fa-list-alt"></i> ICS Security</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="../../cloud_security.html"><i class="fa fa-cloud"></i> Cloud Security</a>
+                                    </li>
+									<li class="dropdown-submenu">
+                                        <a href="../../Advisory.html"><span class="dropdown-menu-title-only"><i class="fa fa-list-alt"></i> Payment Security</span></a>
+                                        <ul class="dropdown-menu" style="top: 0px;">
+                                            <li>
+                                                <a href="../advisory/pci-dss-qsa-asv-compliance-certification.html">PCI DSS QSA</a>
+                                            </li>
+											
+											<li>
+                                                <a href="../advisory/pa-dss-payment-application-data-security-standard.html">PA DSS</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="../business-continuity-management.html"><i class="fa fa-handshake-o"></i> BCMS</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="../../Assessment.html"><span class="dropdown-menu-title-only"><i class="fa fa-lightbulb-o"></i> Assessment</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="../specialized/red-team-assessment.html">Red Team Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/application-security-audit.html">Application Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/mobile-security-testing.html">Mobile Security Testing</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/scada-assessment.html">SCADA and ICS</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/telecom-security-assessment.html">Telecom Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/sharepoint-security.html">Sharepoint Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/source-code-review.html">Source Code Review</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/network-performance-audit.html">Network Audit</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/wireless-auditing.html">Wireless Auditing</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/security-audit.html">Security Audit</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/penetration-testing-company.html">Penetration Testing</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/distributed-denial-of-service-assessment-ddos.html">DDoS Simulation</a>
+                                            </li>
+                                            <li>
+                                                <a href="../security-assessment/spear-phishing.html">Spear Phishing</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="../specialized/red-team-assessment.html">War-Game Assessment</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="../../Advisory.html"><span class="dropdown-menu-title-only"><i class="fa fa-list-alt"></i> Security Compliances</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="../advisory/iso27001.html">ISO 27001</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="../advisory/risk-assessment.html">Risk Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="../advisory/security-awareness.html">Security Awareness</a>
+                                            </li>
+                                            <li>
+                                                <a href="../advisory/iso20000-itil.html">ISO 20000/ITIL </a>
+                                            </li>
+                                            <li>
+                                                <a href="../advisory/iso27004-information-security-metrics.html">Security Metrics</a>
+                                            </li>
+                                            <li>
+                                                <a href="../advisory/cobit-framework.html">COBIT Framework</a>
+                                            </li>
+                                            <li>
+                                                <a href="../advisory/hipaa-compliance-consulting.html">HIPAA</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="../../Remediation.html"><span class="dropdown-menu-title-only"><i class="fa fa-check-square"></i> Remediation</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="../remediation/server-hardening.html">Server Hardening</a>
+                                            </li>
+                                            <li>
+                                                <a href="../remediation/network-redesign.html">Network Redesign</a>
+                                            </li>
+                                            <li>
+                                                <a href="../remediation/endpoint-security.html">Endpoint Security</a>
+                                            </li>
+                                            <li>
+                                                <a href="../remediation/application-redevelopment.html">Application Redevelopment</a>
+                                            </li>
+                                            <li>
+                                                <a href="../remediation/active-directory-and-group-policy-implementation.html">Active Directory and Group Policy Implementation</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="dropdown-submenu">
+                                        <a href="../../Breach_Response.html"><span class="dropdown-menu-title-only"><i class="fa fa-exchange"></i> Breach Response</span></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="../breach-response/compromise-assessment.html">Compromise Assessment</a>
+                                            </li>
+                                            <li>
+                                                <a href="../breach-response/digital-forensics.html">Digital Forensics</a>
+                                            </li>
+                                            <li>
+                                                <a href="../breach-response/financial-fraud-analysis-investigation.html">Financial Fraud Risk Management</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="../../trainings.html"><i class="fa fa-book"></i> Trainings</a>
+                                    </li>
+
+                                    <!-- <li class="dropdown-submenu">
+                                         <span class="dropdown-menu-title-only"><i class="fa fa-star"></i>Specialized</span>
+                                         <ul class="dropdown-menu">
+                                             
+                                         </ul>
+                                     </li>-->
+
+                                </ul>
+                            </li>
+                           <li class="dropdown">
+                                <a href="">Training</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="../../cwasp_training.html">Certified Web Application Security Professional (CWASP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../cpsp_training.php.html">Certified Payment Security Practitioner (CPSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../cpfa_training.html">Certified Professional Forensics Analyst (CPFA)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../cdpp_training.html">Certified Data Privacy Practitioner (CDPP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../cissp_training.html">Certified Information Systems Security Professional (CISSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../cdsp_training.html">Certified DevOps Security Practitioner (CDSP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../SCCP_training.html">Secured Cloud Computing Practitioner (SCCP)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../CTMA_training.html">Certified Threat & Malware Analyst (CTMA)</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../CSOCP_training.html">Certified Security Operations Center Practitioner (CSOCP)</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="">Resources</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://niiconsulting.com/checkmate/">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../research/security-advisories.html">Security Advisories</a>
+                                    </li>
+                                    <!--<li>
+                                            <a href="Researchers.html">Researchers</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/news.html">Articles</a>
+                                    </li>-->
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0)">Annual Report</a>
+                                        <ul class="dropdown-menu" style="top: 0px;">
+                                            <li><a href="../../research/annual-cybersecurity-report-2019.html">Annual Report 2019</a>
+                                            </li>
+                                            <li><a href="../../research/annual-cybersecurity-report-2021.html">Annual Report 2021</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <!--<li>
+                                            <a href="Presentations.html">Presentations</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/innovation/whitepapers.html">Whitepapers</a>
+                                    </li>-->
+                                    <!--<li>
+                                            <a href="https://www.niiconsulting.com/innovation/security-tools.html">Security Tools</a>
+                                    </li>-->
+<!--                                    <li>
+                                        <a href=""https://www.niiconsulting.com//innovation/books.html"">Books</a>
+                                    </li>-->
+                                    <li>
+                                        <a href="../../research/Books.html">Books</a>
+                                    </li>
+                                    <li class="dropdown-submenu">
+                                        <a href="javascript:void(0)">Whitepapers</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="../../whitepapers/Indian-Personal-Data-Protection-Bill.html">Indian Personal Data Protection Bill</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/DevSecOps-A-Concept-Note.html">DevSecOps - A Concept note</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/evolving-role-of-ciso.html">Evolving Role Of CISO</a>
+                                            </li>
+											<li><a href="../../whitepapers/NCA-ECC-Framework.html">NCA ECC Framework</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/understanding-%26-comparing-privacy-laws.html">Comparing Certain Privacy Laws</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/compromise-assessment.html">Compromise Assessment</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/Digital-Forensics-and-Incident-Response.html">Digital Forensics and Incident Response</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/iso-27001-isms.html">ISO 27001 [ISMS]</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/SAMA-Framework.html">SAMA Framework</a>
+                                            </li>
+                                            <li><a href="../../whitepapers/GDPR_Compliance_Australia.html">GDPR_Compliance_Australia</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="../../SOC-Maturity-assessment-quiz.html">SOC Maturity Assessment</a></li>
+                                </ul>
+                            </li>
+                            <!--<li class="dropdown">
+                                <a href="Showcase.html">Showcase</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/scada-security-assessment.html"><i class="fa fa-shield"></i>SCADA Security Assessment</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/mobile-security-assessment.html"><i class="fa fa-mobile"></i>Mobile Security Assessment</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.niiconsulting.com/showcase/telecom-security-assessment.html"><i class="fa fa-phone"></i>Telecom Security Assessment</a>
+                                    </li>
+                                </ul>
+                            </li>-->
+                            <li>
+                                <a href="https://niiconsulting.com/checkmate/">Blog</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="../../company.html">Company</a>
+                                <ul class="dropdown-menu">
+<!--                                    <li>
+                                        <a href="https://www.niiconsulting.com/company.html "><i class="fa fa-building"></i>Company</a>
+                                    </li>-->
+                                    <li>
+                                        <a href="../../company/management-team.html"><i class="fa fa-users"></i>Management Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../company/clients.html"><i class="fa fa-diamond"></i>Clients</a>
+                                    </li>
+                                    <li>
+                                        <a href="../../Careers.html"><i class="fa fa-user"></i>Careers</a>
+                                    </li>
+                                     <li>
+                                        <a href="../../company/hall-of-fame.html"><i class="fa fa-user"></i>Hall Of Fame</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../../Contact_Us.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!--end: Navigation-->
+        </div>
+    </div>
+</header>
+                <!-- end: Header -->
+                <!-- end: Header -->
+                <!-- Page title -->
+                <section id="page-title" class="page-title-center text-light background-overlay-dark" style="background-image:url(../../images/pages/mdr.png);background-size: cover;">
+                    <div class="container">
+                        <div class="page-title"> <span class="post-meta-category"><a href=""></a></span><h1>Threat Hunting</h1> </div>
+                    </div>
+                </section>
+                <!-- end: Page title -->
+                <!-- Page Content -->
+                <section id="page-content" class="sidebar-right">
+                    <div class="container">
+                        <div class="row">
+                            <!-- content -->
+                            <div class="content col-md-9">
+                                <!-- Blog -->
+                                <div id="blog" class="single-post">
+                                    <!-- Post single item-->
+                                    <div class="post-item">
+                                        <div class="post-item-wrap">
+                                            <div class="post-item-description">
+                                                <div class="post-meta"> 
+                                                 <span class="post-meta-category">
+                                                    <i class="fa fa-tag"></i><a href="../../index.htm" style="text-decoration: underline;">Home</a> 
+                                                    >
+                                                    <a href="../../Services.html" style="text-decoration: underline;">Services</a> 
+                                                    >
+                                                    <a href="../../Assessment.html" style="text-decoration: underline;">Managed Security Services</a> 
+                                                    >
+                                                   Threat Hunting
+
+                                                   <a href="../../Assessment.html" class="post-all"> 
+                                                    <i class="fa fa-th assessment-icon"></i> 
+                                                </a>                                               
+                                               </span>
+                                                    <div class="post-meta-share">
+                                                        <a class="btn btn-xs btn-slide btn-facebook" href="../../login-8.php?u=https%3A%2F%2Fwww.niiconsulting.com%2Fservices%2Fmanaged-security%2Fthreat-hunting.php" target="_blank"> <i class="fa fa-facebook"></i> <span>Facebook</span> </a>
+                                                        <a class="btn btn-xs btn-slide btn-twitter" href="https://twitter.com/share?url=https%3A%2F%2Fwww.niiconsulting.com%2Fservices%2Fmanaged-security%2Fthreat-hunting.php" target="_blank"> <i class="fa fa-twitter"></i> <span>Twitter</span> </a>
+                                                        <a class="btn btn-xs btn-slide btn-instagram" href="https://www.instagram.com/?url=https%3A%2F%2Fwww.niiconsulting.com%2Fservices%2Fmanaged-security%2Fthreat-hunting.php" target="_blank"> <i class="fa fa-instagram"></i> <span>Instagram</span> </a>
+                                                        <a class="btn btn-xs btn-slide btn-googleplus" href="../../cdn-cgi/l/email-protection.html#c1a8afa7ae81afa8a8a2aeafb2b4adb5a8afa6efa2aeac" data-width="80"> <i class="fa fa-envelope"></i> <span>Mail</span> </a>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p style="margin: 0px">Recent <a href="../../sites/default/files/ckfinderimages/userfiles/images/crn/custom/whitepaper_cyber_dwell_time_en_0.pdf" style="text-decoration: underline;">research</a> shows that organizations typically take upwards of 200 days (dwell time) to realize that they have been victims of an advanced attack. High-profile data breaches in the news represent only a fraction of the intrusion activity carried out globally. Knowing whether your organization has been breached and identifying ways to reduce risk is crucial to preventing your organization from becoming the next major data breach headline.</p>
+                                                    <!-- <div class="row">
+                                                        <div class="col-sm-4 col-md-4 col-xl-4 col-lg-4" style="margin-top: 18%">
+                                                            <p style="margin: 0px"><b>77%</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">of 2,800 IT professionals in a survey said their organization do not have a formal cybersecurity incident response plan.</p>
+                                                        </div>
+                                                        <div class="col-sm-4 col-md-4 col-xl-4 col-lg-4" style="padding: 0px">
+                                                            <img src="images/pages/ICON.png" style="width: 100%">
+                                                        </div> 
+                                                        <div class="col-sm-4 col-md-4 col-xl-4 col-lg-4" style="margin-top: 8%">
+                                                            <p style="margin: 0px"><b>191 Days</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">The average time needed to fully contain a data breach in 2017.</p>
+
+                                                            <p style="margin: 0px"><b>66 Days</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">The average length of time it takes for organization to identify a data breach.</p>
+                                                        </div>    
+                                                    </div>     -->
+                                                    <div class="row">
+                                                        <div class="col-xl-5 col-md-5 col-lg-5 col-sm-5">
+                                                            <img src="../../images/pages/ICON.png">
+                                                        </div>
+                                                        <div class="col-xl-7 col-md-7 col-lg-7 col-sm-7" style="margin-top: 6%">
+                                                            <p style="margin: 0px"><b>77%</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">of 2,800 IT professionals in a survey said their organization does not have a formal cybersecurity incident response plan.</p>
+
+                                                            <p style="margin: 0px"><b>191 Days</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">The average time needed to fully contain a data breach.</p>
+
+                                                            <p style="margin: 0px"><b>66 Days</b></p>
+                                                            <p style="font-weight: 510;font-size: 14px;">The average length of time it takes for an organization to identify a data breach.</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>Threat hunting enables the reduction of Mean Time to Detect and Mean Time to Response. This reduction can happen if an organisation works continuously to detect attacker activity – this can be done by implementing an Active Threat Hunting Program.</p>
+                                                </div> 
+                                                <div>
+                                                    <h3 style="margin: 0px">What is Threat Hunting?</h3>
+                                                    <ul>
+                                                        <li><p style="margin: 0px">It is the process of proactively and iteratively searching through networks, endpoints, and datasets for evidence of a breach.</p></li>
+                                                        <li><p style="margin: 0px">Hunters hunt for </p></li>
+                                                            <ul>
+                                                                <li><p style="margin: 0px">Indicators of Compromise (IOCs)</p></li>
+                                                                <li><p style="margin: 0px">Indicators of Attack (IOAs)</p></li>
+                                                                <li><p style="margin: 0px">Network-Based Artifacts</p></li>
+                                                                <li><p style="margin: 0px">Host-Based Artifacts</p></li>
+                                                            </ul>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <h3 style="margin: 0px">But I have a SOC, why do I need a Threat Hunting Program?</h3>
+                                                    <p>SOC Monitoring, works on a reactive approach of use-cases. Different use-cases are made based on pre-defined criteria like multiple login failures, and a SOC Analyst would react to that triggered use-case.</p>
+                                                    <p>Threat Hunting works based on hypotheses, where a Threat Hunter understands your existing environment and builds Hunt-Cases. These hunt-cases would be mapped to different attacker and attacker group behavior via MITRE mappings and using these cases, the Hunter would continuously search your environment for signs of a compromise.</p>
+                                                    <p>Threat Hunting doesn’t replace the existing SOC and IR teams, but is built to complement them. It enables your security team to quickly respond to unknown threats before they can damage your organisation.</p>
+
+                                                    <h3 style="margin: 0px">How can we help?</h3>
+                                                    <p>Our threat hunting service incorporates automated and manual analyses. We have an expert team of hunters who have experience on hunting via different SIEMS or via our own Big Data driven <a href="../../BlueScope.html" style="text-decoration: underline;"> Bluescope solution</a>. They are our purple team and bring with them a wealth of knowledge from both Blue and Red Teams. They have worked on a wide variety of data sources from network, operating systems, identity management systems, endpoints and other security technologies. This is further enhanced by Network Intelligence’s experience in responding to breaches that lead to a greater depth of understanding attack Tactics, Techniques, and Procedures (TTPs).   
+                                                    </p>
+                                                </div>   
+                              <!--                  <div class="mdr-expertise">
+                                                    <h2>Our MDR Expertise</h2>
+                                               </div>
+                                                <div class="row">
+                                                    <div class="container-fluid years-left">
+                                                        <div class="col col-sm-4 col-md-4 col-xl-4 col-lg-4 " style=" border-right: 1px dashed">
+                                                        <div class="years">
+                                                            <div style="width:30%!important"><img src="images/pages/exp1.png" width="100%"></div> 
+                                                            <div style="width:70%!important;padding-left:15px">
+                                                            <h3>20+ Years</h3>
+                                                            <p>in the Cybersecurity business with 500+ employees</p>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="years">
+                                                            <div style="width:30%!important"><img src="images/pages/exp2.png" width="100%"></div> 
+                                                            <div style="width:70%!important;padding-left:15px">
+                                                            <h3>10+ Years</h3>
+                                                            <p>since we first began offering MDR services</p>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="years">
+                                                            <div style="width:30%!important"><img src="images/pages/exp3.png" width="100%"></div> 
+                                                            <div style="width:70%!important;padding-left:15px">
+                                                            <h3>100-Seater</h3>
+                                                            <p>primary 24*7 Security Operations Center</p>
+                                                            </div> 
+                                                        </div>  
+                                                        <div class="years">
+                                                            <div style="width:30%!important"><img src="images/pages/exp4.png" width="100%"></div> 
+                                                            <div style="width:70%!important;padding-left:15px">
+                                                            <h3>Powerful AI and ML </h3>
+                                                            <p>based analytics for protection from advanced threats</p>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="years">
+                                                            <div style="width:30%!important"><img src="images/pages/exp5.png" width="100%"></div> 
+                                                            <div style="width:70%!important;padding-left:15px">
+                                                            <h3>>200,000 Events Per Second/ 20 TB</h3>
+                                                            <p>managed per day.<br>5000 + alterts per day</p>
+                                                            </div> 
+                                                        </div>
+                                                        </div>
+                                                        <div class="col col-sm-4 col-md-4 col-xl-4 col-lg-4 earth">
+                                                            <img src="images/pages/earth.png" width="100%">
+                                                            <div class="cross-erth"></div>
+                                                        </div>
+                                                        <div class="col col-sm-4 col-md-4 col-xl-4 col-lg-4" style=" border-left: 1px dashed">
+                                                            <div class="exp-right">
+                                                                <div style="width:30%!important"><img src="images/pages/exp6.png" width="100%"></div> 
+                                                                <div style="width:70%!important;padding-left:15px">
+                                                                <h3>~25,000 Devices </h3>
+                                                                <p>are currently under Management</p>
+                                                                </div> 
+                                                            </div>  
+                                                            <div class="exp-right">
+                                                                <div style="width:100%!important"><img src="images/pages/exp7.png" width="100%"></div> 
+                                                                <div class="divided-h" style="font-size:12px">Expertise across <span>industry leading SIEMs</span></div>
+                                                            </div>  
+                                                            <div class="exp-right">
+                                                                <div style="width:100%!important" class="text-center"><img src="images/pages/exp8.png" style="width:54% !important"></div> 
+                                                                <div class="divided-h" style="font-size:12px">Proprietary <span>Threat Hunting Platform</span></div>
+                                                            </div>
+                                                            <div class="exp-right">
+                                                                <div style="width:100%!important" class="text-center"><img src="images/pages/exp9.png" style="width:54% !important"></div> 
+                                                                <div class="divided-h" style="font-size:12px">Ranked in  <span>Global Top 250 MSSP Providers</span></div>
+                                                            </div>  
+                                                            <div class="exp-right">
+                                                                <div style="width:100%!important">
+                                                                    <div class="multi-logo">
+                                                                        <div class="multi-img"><img src="images/pages/multi logo.jpg" width="100%"></div>                                                 
+                                                                    </div>
+                                                                </div> 
+                                                                <div class="divided-h" style="font-size:12px">Experienced staff with various <span>Security Certifications</span></div>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                </div>  -->
+                                                <!-- <div class="Hunting sum">
+                                                    <div><h1 class="heding-size" style="padding: 50px 0 0px">Threat Hunting - Summary</h1></div>
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6 col-xl-6 col-lg-6">
+                                                              <div class="Hypothesis1">
+                                                                <h4>What is Threat Hunting?</h4>
+                                                                <ul>
+                                                                    <li>Hypothesis driven</li>
+                                                                    <li>Proactive</li> 
+                                                                    <li>Manual & Automated search of malicious threat actors</li>
+                                                                </ul>
+                                                                    <div class="num-box2"><img src="images/pages/num-1.png" width="100%"></div>    
+                                                            </div>
+                                                            <div class="Hypothesis1" style="border: 6px solid #5e71e3;">
+                                                                <h4>Why traditional methods are not enough?</h4>
+                                                                <ul>
+                                                                    <li>With evolving cyber threats, detection methods have evolved accordingly</li>
+                                                                    <li>This complements the classic trigger-based approach followed by SOC Team </li> 
+                                                                </ul>                                                                    <div class="num-box2"><img src="images/pages/num-2.png" width="100%"></div>    
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-6 col-xl-6 col-lg-6">
+                                                            <div class="Hypothesis1" style="border: 6px solid #3f7ebb;">
+                                                                <h4>Who forms Threat Hunting Team?</h4>
+                                                                <ul>
+                                                                    <li>Shared team</li>
+                                                                    <li>Experienced SOC Threat Hunters</li> 
+                                                                </ul>                                                                <div class="num-box1"><img src="images/pages/num-3.png" width="100%"></div>    
+                                                            </div>
+                                                            <div class="Hypothesis1" style="border: 6px solid #67748e;">
+                                                                <h4>How to utilize existing SIEM and available tools?</h4>
+                                                                <ul>
+                                                                    <li>IBM Qradar SIEM</li>
+                                                                    <li>Machine Learning enabled UBA</li> 
+                                                                    <li>Read only access to key devices (optional)</li>
+                                                                </ul>                                                                <div class="num-box1"><img src="images/pages/num-4.png" width="100%"></div>    
+                                                            </div>  
+                                                        </div>    
+                                                    </div>
+                                                </div>  -->
+                                         <!--        <div><h1 class="heding-hed" style="padding: 26px 0px 0px 0px">Framework</h1></div>
+                                                    <div class="row">
+                                                        <div class="col col-sm-6 col-md-6 col-xl-6 col-lg-6" style="padding: 0px 30px;">
+                                                            <div class="Hypothesis">
+                                                                <h4>Build Hypothesis</h4>
+                                                                <p>Theory or Logic for detecting threats</p>
+                                                                    <div class="num-box"><img src="images/pages/num-1.png" width="100%"></div>    
+                                                            </div>
+                                                            <div class="Hypothesis" style="border: 6px solid #5e71e3;">
+                                                                <h4>Identify Data Sources</h4>
+                                                                <p>Select the right data source relevant to hypothesis</p>
+                                                                    <div class="num-box"><img src="images/pages/num-2.png" width="100%"></div>    
+                                                            </div>
+                                                            <div class="Hypothesis" style="border: 6px solid #3f7ebb;">
+                                                                <h4>Analyze Data</h4>
+                                                                <p>Make use of available tools to find patterns</p>
+                                                                <div class="num-box"><img src="images/pages/num-3.png" width="100%"></div>    
+                                                            </div>
+                                                            <div class="Hypothesis" style="border: 6px solid #67748e;">
+                                                                <h4>Triage and Investigate</h4>
+                                                                <p>Prioritize and find root cause of the incident</p>
+                                                                <div class="num-box"><img src="images/pages/num-4.png" width="100%"></div>    
+                                                            </div>  
+                                                        </div>
+                                                        <div class="col col-sm-6 col-md-6 col-xl-6 col-lg-6 strip"><img src="images/pages/data-srtu.png" width="100%"></div>
+                                                    </div>  -->
+
+                                            <!--         <div><h1 class="heding-size"><b>Typical Data Sources</b></h1></div>
+                                                    <div class="row">
+                                                        <div class="col col-sm-3 col-md-3 col-xl-3 col-lg-3">
+                                                            <div style="text-align:right">
+                                                                <div class="Third">
+                                                                    <h6>Third Party Threat Intelligence</h6>
+                                                                    <p>IBM X-Force – considered to be one of the most premium threat intelligence source in the market</p>
+                                                                </div>
+                                                                <div class="Third">
+                                                                    <h6>Open-Source Feeds</h6>
+                                                                    <p>30+ data sources collated via Palo Alto Project - Minemeld</p>
+                                                                </div>
+                                                                <div class="Third">
+                                                                    <h6>Internal Network Intelligence Threat Intelligence</h6>
+                                                                    <p>Threat Intel collected by attacks on our MDR clients anonymously and research conducted by our team</p>
+                                                                </div>
+                                                                <div class="Third">
+                                                                    <h6>WHAT WE GET::</h6>
+                                                                    <p>Known/unknown attacker, C2 communication, IOC, attack campaign, TTP</p>
+                                                                </div>
+                                                            </div>
+                                                            <div style="padding-top:30px;text-align:right">
+                                                                    <div class="Feeds">
+                                                                        <h6>Active Directory</h6>
+                                                                        <p>Essential to detect domain level attacks</p>
+                                                                    </div>
+                                                                    <div class="Feeds">
+                                                                        <h6>Server Operating System Logs</h6>
+                                                                        <p>Useful in detecting insider threats using machine learning enabled UBA</p>
+                                                                    </div>
+                                                                    <div class="Feeds">
+                                                                        <h6>WHAT WE GET</h6>
+                                                                        <p>Access level, privileged users, where the attacker might be in kill chain</p>
+                                                                    </div>
+                                                            </div>
+                                                        </div> -->
+                                         <!--                <div class="col col-sm-6 col-md-6 col-xl-6 col-lg-6 data-type"><img src="images/pages/data-type.png" width="100%"></div>
+                                                        <div class="col col-sm-3 col-md-3 col-xl-3 col-lg-3">
+                                                                <div >
+                                                                    <div class="Third">
+                                                                        <h6>UTM, IDS, IPS, WAF:</h6>
+                                                                        <p>Devices with threat detection capabilities</p>
+                                                                    </div>
+                                                                    <div class="Third">
+                                                                        <h6>Firewall, Email, Web Proxy</h6>
+                                                                        <p>Devices capable of detecting traffic coming in and going out Of the network</p>
+                                                                    </div>
+                                                                    <div class="Third">
+                                                                        <h6>WHAT WE GET:</h6>
+                                                                        <p>Where they went, who talked to whom, attack transmitted, abnormal traffic, malware downloaded</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div style="padding-top:75px">
+                                                                        <div class="Feeds">
+                                                                            <h6>AV/EDR/HIPS: </h6>
+                                                                            <p>Single source of info for all endpoint malware activities</p>
+                                                                        </div>
+                                                                        <div class="Feeds">
+                                                                            <h6>Deception Technology</h6>
+                                                                            <p>Very useful if an attacker has already infiltrated the network</p>
+                                                                        </div>
+                                                                        <div class="Feeds">
+                                                                            <h6>OS Logs/symon</h6>
+                                                                            <p>Required from key and high privilege endpoints like  sysadmin, domain admins etc.</p>
+                                                                        </div>
+                                                                        <div class="Feeds">
+                                                                            <h6>WHAT WE GET</h6>
+                                                                            <p>What process is running, process owner, registry mods,attack/malware artefacts, patching level</p>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                    </div> -->
+                                     <!--                <div class=""><h1 class="heding-hed" style="padding:26px 0px 0px 0px">Threat Hunting Metrics</h1></div>  
+                                                        <div class="Metrics">
+                                                            <p style="font-size: 16px">To measure the effectiveness of the threat hunting program, we define the below metrics which can enable the organizations to derive value from proactive threat hunting</p>
+                                                            <ol type="1" style="list-style-type: revert;">
+                                                                <li>Number of hits for 3rd party threat intelligence feeds</li>
+                                                                <li>Number of hunt-cases delivered</li>
+                                                                <li>Number of threats identified per hunt-case</li>
+                                                                <li>Dwell Time of Threats discovered</li>
+                                                                <li>Logging Gaps identified and corrected</li>
+                                                                <li>Number of compromised hosts discovered which were not identified by signature based tools</li>
+                                                                <li>New TTPs identified and contained </li>
+                                                                <li>Number of confirmed, false-positives and inconclusive incidents</li>
+                                                            </ol>
+                                                        </div> -->
+<!-- 
+                                                    <div><h1 class="heding-hed">Deliverables</h1></div>
+                                                        <div class="tab-sec">
+                                                            <p style="font-size: 16px">Threat Hunting team would provide the below list of deliverables at regular intervals:</p>
+                                                            <div style="display: flex;">
+                                                                <div class="half" style="border-right:1px solid #fff"><div class="Deliverable " style="padding: 12px 13px"><h4>Deliverable Description</h4></div></div>
+                                                                <div class="half"><div class="Deliverable" style="padding: 12px 13px"><h4>Frequency</h4></div></div>
+                                                            </div>
+                                                            <div style="display: flex;padding:3px 0px">
+                                                                <div class="half"><div class="Deliverable " style="padding: 12px 13px"><h4>Threat Hunt Report</h4></div></div>
+                                                                <div class="half"><div class="Deliverable2" style="padding: 12px 13px"><h4>Real Time</h4></div></div>
+                                                            </div>
+                                                            <div style="display: flex;flex;padding:3px 0px">
+                                                                <div class="half"><div class="Deliverable " style="padding: 12px 13px"><h4>Summary report</h4></div></div>
+                                                                <div class="half"><div class="Deliverable2" style="padding: 12px 13px"><h4>Monthly</h4></div></div>
+                                                            </div>
+                                                            <h3 style="margin: 0px;padding: 26px 70px 0px 0px">Threat Hunt Report – Format</h3>
+                                                            <ul style="margin-left: 20px">
+                                                                <li>Duration of Hunt</li>
+                                                                <li>Description of Hunt-case (hypothesis)</li>
+                                                                <li>Data sources analyzed during hunt</li>
+                                                                <li>Duration of log data analyzed during hunt and retro hunt</li>
+                                                                <li>Threats discovered and Investigation Details</li>
+                                                                <li>Events Analyzed for sampled log duration</li>
+                                                                <li>Artifacts white-listed (or tagged as ‘normal’)</li>
+                                                                <li>Threat containment status</li>
+                                                                <li>Threat Dwell time (if available)</li>
+                                                            </ul>
+                                                        </div>   -->
+<!-- 
+                                                    <div><h1 class="heding-hed" style="padding: 0px 0px 9px">Threat Hunting - Sample Data Source</h1></div>
+                                                        <div style="display: flex;">
+                                                            <div class="one-forth cblue">
+                                                                <div class="text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Log Source</div>
+                                                                    <div class="t-cent"><h4>Proxy</h4></div>
+                                                                </div>      
+                                                            <div class="one-forth  cbrawn text-center list-sec">
+                                                                <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Important Fields</div>
+                                                                <ul class="text-left">
+                                                                    <li>Timestamp</li>
+                                                                    <li>Source IP</li>
+                                                                    <li>Destination IP</li>
+                                                                    <li>Destination port</li>
+                                                                    <li>Username</li>
+                                                                    <li>Destination Domain</li>
+                                                                    <li>Request Method</li>
+                                                                    <li>Request URI</li>
+                                                                    <li>Request Extension</li>
+                                                                    <li>Request Referrer</li>
+                                                                    <li>User-agent String</li>
+                                                                    <li>Sent Bytes</li>
+                                                                    <li>Received Bytes</li>
+                                                                    <li>Response Code</li>
+                                                                    <li>Response Content Type</li>
+                                                                    <li>Proxy Category</li>
+                                                                    <li>Proxy Action</li>
+                                                                    <li>Geo-location</li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="one-forth dash-list cbrawn">
+                                                                <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Sample Hunt-cases</div>
+                                                            <ul style="list-style-type:none;padding:0px">
+                                                                <li>-  Identify traffic flowing towards paste bin sites like Pastebin</li>
+                                                                <li>-  Identify top bandwidth consuming destination IPs</li>
+                                                                <li>-  Identify top bandwidth consuming source IPs</li>
+                                                                <li>-  Identify non-standard/outlier IP addresses based on network study/layout already gathered</li>
+                                                                <li>-  Identify Top Destination IPs with least bandwidth</li>
+                                                                <li>-  Identify traffic flowing to suspicious countries</li>
+                                                            </ul>
+                                                            </div>      
+                                                        </div> -->
+
+                                                      <!--   <div><h1 class="heding-hed" style="padding:40px 0px 9px">Threat Hunting - Sample Data Source</h1></div>
+                                                            <div style="display: flex;">
+                                                                <div class="one-forth cblue">
+                                                                    <div class="text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Log Source</div>
+                                                                        <div class="t-cent"><h4>Firewall</h4></div>
+                                                                    </div>      
+                                                                <div class="one-forth  cbrawn text-center list-sec">
+                                                                    <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Important Fields</div>
+                                                                    <ul class="text-left">
+                                                                        <li>Source IP</li>
+                                                                        <li>Destination IP</li>
+                                                                        <li>Source Port</li>
+                                                                        <li>Destination port</li>
+                                                                        <li>Destination Protocol</li>
+                                                                        <li>Source Hostname</li>
+                                                                        <li>Source MAC Address</li>
+                                                                        <li>Destination MAC Address</li>
+                                                                        <li>Firewall Action</li>
+                                                                        <li>Firewall Signature</li>
+                                                                        <li>Firewall Severity</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="one-forth dash-list cbrawn">
+                                                                    <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Sample Hunt-cases</div>
+                                                                <ul style="list-style-type:none;padding:0px">
+                                                                    <li>-  Too many deny logs from one source IP - internal firewall</li>
+                                                                    <li>-  Specific ports hit on multiple destination IP addresses from single IP address – internal firewall</li>
+                                                                    <li>-  Too many ports scanned for one destination IP – from single source IP – internal firewall</li>
+                                                                    <li>-  Identify hits to non-standard DNS servers</li>
+                                                                    <li>-  Standard DNS servers are to be obtained from IT-SEC team</li>
+                                                                    <li>- Identify hits to any IP address which exists in IoC list – incoming or outgoing</li>
+                                                                </ul>
+                                                                </div>      
+                                                            </div> -->
+<!-- 
+                                                            <div><h1 class="heding-hed" style="padding:40px 0px 9px">Threat Hunting - Sample Data Source</h1></div>
+                                                                <div style="display: flex;">
+                                                                    <div class="one-forth cblue">
+                                                                        <div class="text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Log Source</div>
+                                                                            <div class="t-cent"><h4>Anti-Virus</h4></div>
+                                                                        </div>      
+                                                                    <div class="one-forth  cbrawn text-center list-sec">
+                                                                        <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Important Fields</div>
+                                                                        <ul class="text-left">
+                                                                            <li>Source Hostname</li>
+                                                                            <li>Source IP</li>
+                                                                            <li>Source Host OS</li>
+                                                                            <li>Username (which triggered the malware)</li>
+                                                                            <li>Timestamp of First Detection</li>
+                                                                            <li>Infection Signature Name</li>
+                                                                            <li>Infection Path</li>
+                                                                            <li>Infected Binary</li>
+                                                                            <li>AV Action</li>
+                                                                            <li>Disinfection Status</li>
+                                                                            <li>Infection Severity</li>                                                 
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="one-forth dash-list cbrawn">
+                                                                        <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Sample Hunt-cases</div>
+                                                                    <ul style="list-style-type:none;padding:0px">
+                                                                        <li>-  Identify known webshell names</li>
+                                                                        <li>-  Identify services/process running with executable path in %TEMP%, %WINDOWS%, %RECYCLER% etc</li>
+                                                                        <li>-  Identify Packed executables</li>
+                                                                        <li>- Identify names of common cred dumpers (mimkatz), scanners, rootkits, keyloggers etc.</li>                     
+                                                                    </ul>
+                                                                    </div>      
+                                                                </div> -->
+<!-- 
+                                                                <div><h1 class="heding-hed" style="padding:40px 0px 9px">Threat Hunting - Sample Data Source</h1></div>
+                                                                <div style="display: flex;">
+                                                                    <div class="one-forth cblue">
+                                                                        <div class="text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Log Source</div>
+                                                                            <div class="t-cent"><h4>DNS</h4></div>
+                                                                        </div>      
+                                                                    <div class="one-forth  cbrawn text-center list-sec">
+                                                                        <div class="cblue text-center head-ul " style="border-bottom: 1px solid;font-weight: bold;">Important Fields</div>
+                                                                        <ul class="text-left">
+                                                                            <li><b>Query Type</b></li>
+                                                                            <li>Query Domain</li>
+                                                                            <li>Query size</li>
+                                                                            <li>Response Size</li>
+                                                                            <li>Source IP of Query</li>                                                                         
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="one-forth dash-list cbrawn">
+                                                                        <div class="cblue text-center head-ul" style="border-bottom: 1px solid;font-weight: bold;">Sample Hunt-cases</div>
+                                                                    <ul>
+                                                                        <li>Identify DNS queries to non-standard TLDs (.ru, .cn, .pk etc.)</li>
+                                                                        <li>Identify domains with resolution as 127.0.0.1 and other loopback IP addresses</li>
+                                                                        <li>Track hosts which are sending too many DNS queries in short timespan</li>
+                                                                        <li>Identify hosts with too many TXT queries</li>                       
+                                                                    </ul>
+                                                                    </div>      
+                                                                </div> -->
+<!-- 
+                                                                <div style="padding:20px 0px"><h2 class="heding-hed">Case Study – Active Threat Hunting</h2></div>
+                                                                    <div class="row case">
+                                                                        <div class="col col-sm-9 col-md-9 col-xl-9 col-lg-9 case">
+                                                                            <h4>Managing Cyber Emergency Response Services for one of the major private bank</h4>
+                                                                            <h4 style="margin: 0px;">24 x 7  Incident Response Services</h4>
+                                                                            <ul>
+                                                                                <li>7 team members in rotation</li>
+                                                                                <li>Serve as the primary point of contact for handling alerts generated by all systems pertaining to IT security monitoring. </li>
+                                                                                <li>Work with various internal teams to quickly triage alerts and ensure speedy resolution.</li>
+                                                                                <li>Maintain metrics and analytics of security events and assist in fine tuning the incident response process. </li>
+                                                                                <li>Assist in building rule sets for Bank’s security analytics platform. </li>
+                                                                            </ul>
+                                                                            <h4>8 x 5 Threat Hunting Services</h4>
+                                                                            <ul>
+                                                                                <li>ELK Stack based threat hunting platform</li>
+                                                                                <li>Created multiple dashboards and visualization independent</li>
+                                                                                <li>Major anomalies found which were missed by SOC(constrained by # of use cases and log sources).</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="col col-sm-3 col-md-3 col-xl-3 col-lg-3 pol-img" style="padding: 50px 10px;">
+                                                                            <img src="images/pages/pol.png" width="100%" height="350px">
+                                                                        </div>
+                                                                    </div> -->
+<!-- 
+                                                                    <div><h1 class="heding-hed" style="padding:0px">Terms & Conditions</h1></div>
+                                                                        <div class="term" style="padding:0px">
+                                                                            <ul>
+                                                                                <li>All taxes extra as applicable</li>
+                                                                                <li>Purchase order must be placed in the name of “Network Intelligence Pvt. Ltd”.</li>
+                                                                                <li>Payment terms: 30 days from submission of invoice</li>
+                                                                                <li>The Quote will be valid for 30 days from the date of submission.</li>
+                                                                                <li>If any onsite activity is needed, the To and Fro Travel, Accommodation and Local Travel expenses should be borne by the customer</li>
+                                                                                <li>Delivery is during India business hours. For any special event, we will extend the service time accordingly</li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div><h1 class="heding-hed" style="padding:0px">Assumptions</h1></div>
+                                                                        <div class="term" style="padding:0px">
+                                                                            <ul>
+                                                                                <li>Network Intelligence is not responsible for providing any software licenses to the customer.</li>
+                                                                                <li>The customer will provide access to network diagrams, topologies, device configurations, IP addressing, Asset Information and detailed configuration, wherever required.</li>
+                                                                                <li>The customer will provide access to corporate policies for related Use Case Development.</li>
+                                                                                <li>All deliverables are highlighted in the proposal, exceptions if any; need to be discussed and agreed with both parties  </li>                   
+                                                                            </ul>
+                                                                        </div> -->
+                                                                    </div>
+
+
+                                            <div id="connectwithus">
+                                            <h3>Connect With Us</h3>
+                                            <form id="redAssessmentForm" class="" action="/services/specialized/threat-hunting-thank-you.php" role="form" method="post">
+                                                <div class="row">
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="name">Name</label>
+                                                        <input type="text" aria-required="true" id="name" name="name" class="form-control required" placeholder="Enter your Name">
+                                                        <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                                                                                    </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="phone">Phone</label>
+                                                        <input type="text" aria-required="true" id="phone" name="phone" class="form-control  required" placeholder="Enter your Phone Number">
+                                                        <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                                                                                    </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" aria-required="true" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+                                                        <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                             
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="organization">Organization</label>
+                                                        <input type="text" aria-required="true" id="organization" name="organization" class="form-control required" placeholder="Enter Organization Name">
+                                                        <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                                                                                    </div>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label for="name">Country</label>
+                                                        <select aria-required="true" id="country" name="country" class="form-control required">
+                                                            <option value="">Select Country</option>
+                                                            <option value='Afghanistan'>Afghanistan</option><option value='Albania'>Albania</option><option value='Algeria'>Algeria</option><option value='American Samoa'>American Samoa</option><option value='Andorra'>Andorra</option><option value='Angola'>Angola</option><option value='Anguilla'>Anguilla</option><option value='Antarctica'>Antarctica</option><option value='Antigua And Barbuda'>Antigua And Barbuda</option><option value='Argentina'>Argentina</option><option value='Armenia'>Armenia</option><option value='Aruba'>Aruba</option><option value='Australia'>Australia</option><option value='Austria'>Austria</option><option value='Azerbaijan'>Azerbaijan</option><option value='Bahamas The'>Bahamas The</option><option value='Bahrain'>Bahrain</option><option value='Bangladesh'>Bangladesh</option><option value='Barbados'>Barbados</option><option value='Belarus'>Belarus</option><option value='Belgium'>Belgium</option><option value='Belize'>Belize</option><option value='Benin'>Benin</option><option value='Bermuda'>Bermuda</option><option value='Bhutan'>Bhutan</option><option value='Bolivia'>Bolivia</option><option value='Bosnia and Herzegovina'>Bosnia and Herzegovina</option><option value='Botswana'>Botswana</option><option value='Bouvet Island'>Bouvet Island</option><option value='Brazil'>Brazil</option><option value='British Indian Ocean Territory'>British Indian Ocean Territory</option><option value='Brunei'>Brunei</option><option value='Bulgaria'>Bulgaria</option><option value='Burkina Faso'>Burkina Faso</option><option value='Burundi'>Burundi</option><option value='Cambodia'>Cambodia</option><option value='Cameroon'>Cameroon</option><option value='Canada'>Canada</option><option value='Cape Verde'>Cape Verde</option><option value='Cayman Islands'>Cayman Islands</option><option value='Central African Republic'>Central African Republic</option><option value='Chad'>Chad</option><option value='Chile'>Chile</option><option value='China'>China</option><option value='Christmas Island'>Christmas Island</option><option value='Cocos (Keeling) Islands'>Cocos (Keeling) Islands</option><option value='Colombia'>Colombia</option><option value='Comoros'>Comoros</option><option value='Congo'>Congo</option><option value='Congo The Democratic Republic Of The'>Congo The Democratic Republic Of The</option><option value='Cook Islands'>Cook Islands</option><option value='Costa Rica'>Costa Rica</option><option value='Cote D Ivoire (Ivory Coast)'>Cote D Ivoire (Ivory Coast)</option><option value='Croatia (Hrvatska)'>Croatia (Hrvatska)</option><option value='Cuba'>Cuba</option><option value='Cyprus'>Cyprus</option><option value='Czech Republic'>Czech Republic</option><option value='Denmark'>Denmark</option><option value='Djibouti'>Djibouti</option><option value='Dominica'>Dominica</option><option value='Dominican Republic'>Dominican Republic</option><option value='East Timor'>East Timor</option><option value='Ecuador'>Ecuador</option><option value='Egypt'>Egypt</option><option value='El Salvador'>El Salvador</option><option value='Equatorial Guinea'>Equatorial Guinea</option><option value='Eritrea'>Eritrea</option><option value='Estonia'>Estonia</option><option value='Ethiopia'>Ethiopia</option><option value='External Territories of Australia'>External Territories of Australia</option><option value='Falkland Islands'>Falkland Islands</option><option value='Faroe Islands'>Faroe Islands</option><option value='Fiji Islands'>Fiji Islands</option><option value='Finland'>Finland</option><option value='France'>France</option><option value='French Guiana'>French Guiana</option><option value='French Polynesia'>French Polynesia</option><option value='French Southern Territories'>French Southern Territories</option><option value='Gabon'>Gabon</option><option value='Gambia The'>Gambia The</option><option value='Georgia'>Georgia</option><option value='Germany'>Germany</option><option value='Ghana'>Ghana</option><option value='Gibraltar'>Gibraltar</option><option value='Greece'>Greece</option><option value='Greenland'>Greenland</option><option value='Grenada'>Grenada</option><option value='Guadeloupe'>Guadeloupe</option><option value='Guam'>Guam</option><option value='Guatemala'>Guatemala</option><option value='Guernsey and Alderney'>Guernsey and Alderney</option><option value='Guinea'>Guinea</option><option value='Guinea-Bissau'>Guinea-Bissau</option><option value='Guyana'>Guyana</option><option value='Haiti'>Haiti</option><option value='Heard and McDonald Islands'>Heard and McDonald Islands</option><option value='Honduras'>Honduras</option><option value='Hong Kong S.A.R.'>Hong Kong S.A.R.</option><option value='Hungary'>Hungary</option><option value='Iceland'>Iceland</option><option value='India'>India</option><option value='Indonesia'>Indonesia</option><option value='Iran'>Iran</option><option value='Iraq'>Iraq</option><option value='Ireland'>Ireland</option><option value='Israel'>Israel</option><option value='Italy'>Italy</option><option value='Jamaica'>Jamaica</option><option value='Japan'>Japan</option><option value='Jersey'>Jersey</option><option value='Jordan'>Jordan</option><option value='Kazakhstan'>Kazakhstan</option><option value='Kenya'>Kenya</option><option value='Kiribati'>Kiribati</option><option value='Korea North'>Korea North</option><option value='Korea South'>Korea South</option><option value='Kuwait'>Kuwait</option><option value='Kyrgyzstan'>Kyrgyzstan</option><option value='Laos'>Laos</option><option value='Latvia'>Latvia</option><option value='Lebanon'>Lebanon</option><option value='Lesotho'>Lesotho</option><option value='Liberia'>Liberia</option><option value='Libya'>Libya</option><option value='Liechtenstein'>Liechtenstein</option><option value='Lithuania'>Lithuania</option><option value='Luxembourg'>Luxembourg</option><option value='Macau S.A.R.'>Macau S.A.R.</option><option value='Macedonia'>Macedonia</option><option value='Madagascar'>Madagascar</option><option value='Malawi'>Malawi</option><option value='Malaysia'>Malaysia</option><option value='Maldives'>Maldives</option><option value='Mali'>Mali</option><option value='Malta'>Malta</option><option value='Man (Isle of)'>Man (Isle of)</option><option value='Marshall Islands'>Marshall Islands</option><option value='Martinique'>Martinique</option><option value='Mauritania'>Mauritania</option><option value='Mauritius'>Mauritius</option><option value='Mayotte'>Mayotte</option><option value='Mexico'>Mexico</option><option value='Micronesia'>Micronesia</option><option value='Moldova'>Moldova</option><option value='Monaco'>Monaco</option><option value='Mongolia'>Mongolia</option><option value='Montserrat'>Montserrat</option><option value='Morocco'>Morocco</option><option value='Mozambique'>Mozambique</option><option value='Myanmar'>Myanmar</option><option value='Namibia'>Namibia</option><option value='Nauru'>Nauru</option><option value='Nepal'>Nepal</option><option value='Netherlands Antilles'>Netherlands Antilles</option><option value='Netherlands The'>Netherlands The</option><option value='New Caledonia'>New Caledonia</option><option value='New Zealand'>New Zealand</option><option value='Nicaragua'>Nicaragua</option><option value='Niger'>Niger</option><option value='Nigeria'>Nigeria</option><option value='Niue'>Niue</option><option value='Norfolk Island'>Norfolk Island</option><option value='Northern Mariana Islands'>Northern Mariana Islands</option><option value='Norway'>Norway</option><option value='Oman'>Oman</option><option value='Pakistan'>Pakistan</option><option value='Palau'>Palau</option><option value='Palestinian Territory Occupied'>Palestinian Territory Occupied</option><option value='Panama'>Panama</option><option value='Papua new Guinea'>Papua new Guinea</option><option value='Paraguay'>Paraguay</option><option value='Peru'>Peru</option><option value='Philippines'>Philippines</option><option value='Pitcairn Island'>Pitcairn Island</option><option value='Poland'>Poland</option><option value='Portugal'>Portugal</option><option value='Puerto Rico'>Puerto Rico</option><option value='Qatar'>Qatar</option><option value='Reunion'>Reunion</option><option value='Romania'>Romania</option><option value='Russia'>Russia</option><option value='Rwanda'>Rwanda</option><option value='Saint Helena'>Saint Helena</option><option value='Saint Kitts And Nevis'>Saint Kitts And Nevis</option><option value='Saint Lucia'>Saint Lucia</option><option value='Saint Pierre and Miquelon'>Saint Pierre and Miquelon</option><option value='Saint Vincent And The Grenadines'>Saint Vincent And The Grenadines</option><option value='Samoa'>Samoa</option><option value='San Marino'>San Marino</option><option value='Sao Tome and Principe'>Sao Tome and Principe</option><option value='Saudi Arabia'>Saudi Arabia</option><option value='Senegal'>Senegal</option><option value='Serbia'>Serbia</option><option value='Seychelles'>Seychelles</option><option value='Sierra Leone'>Sierra Leone</option><option value='Singapore'>Singapore</option><option value='Slovakia'>Slovakia</option><option value='Slovenia'>Slovenia</option><option value='Smaller Territories of the UK'>Smaller Territories of the UK</option><option value='Solomon Islands'>Solomon Islands</option><option value='Somalia'>Somalia</option><option value='South Africa'>South Africa</option><option value='South Georgia'>South Georgia</option><option value='South Sudan'>South Sudan</option><option value='Spain'>Spain</option><option value='Sri Lanka'>Sri Lanka</option><option value='Sudan'>Sudan</option><option value='Suriname'>Suriname</option><option value='Svalbard And Jan Mayen Islands'>Svalbard And Jan Mayen Islands</option><option value='Swaziland'>Swaziland</option><option value='Sweden'>Sweden</option><option value='Switzerland'>Switzerland</option><option value='Syria'>Syria</option><option value='Taiwan'>Taiwan</option><option value='Tajikistan'>Tajikistan</option><option value='Tanzania'>Tanzania</option><option value='Thailand'>Thailand</option><option value='Togo'>Togo</option><option value='Tokelau'>Tokelau</option><option value='Tonga'>Tonga</option><option value='Trinidad And Tobago'>Trinidad And Tobago</option><option value='Tunisia'>Tunisia</option><option value='Turkey'>Turkey</option><option value='Turkmenistan'>Turkmenistan</option><option value='Turks And Caicos Islands'>Turks And Caicos Islands</option><option value='Tuvalu'>Tuvalu</option><option value='Uganda'>Uganda</option><option value='Ukraine'>Ukraine</option><option value='United Arab Emirates'>United Arab Emirates</option><option value='United Kingdom'>United Kingdom</option><option value='United States'>United States</option><option value='United States Minor Outlying Islands'>United States Minor Outlying Islands</option><option value='Uruguay'>Uruguay</option><option value='Uzbekistan'>Uzbekistan</option><option value='Vanuatu'>Vanuatu</option><option value='Vatican City State (Holy See)'>Vatican City State (Holy See)</option><option value='Venezuela'>Venezuela</option><option value='Vietnam'>Vietnam</option><option value='Virgin Islands (British)'>Virgin Islands (British)</option><option value='Virgin Islands (US)'>Virgin Islands (US)</option><option value='Wallis And Futuna Islands'>Wallis And Futuna Islands</option><option value='Western Sahara'>Western Sahara</option><option value='Yemen'>Yemen</option><option value='Yugoslavia'>Yugoslavia</option><option value='Zambia'>Zambia</option><option value='Zimbabwe'>Zimbabwe</option>                                                        </select>
+                                                        <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                                                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message">Message</label>
+                                                    <textarea type="text" name="message" id="message" rows="5" class="form-control required" name="message" placeholder="Enter your Message"></textarea>
+                                                    <div style="color: red;font-weight: bold;padding: 7px 0px;">
+                                                                                                            </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="checkbox" name="agree" id="agree" class="">&nbsp;I agree to receive newsletters and other information related to company and it's services
+                                                    <div style="color: red;font-weight: bold;padding: 7px 0px;" id="agreeDiv">
+                                                                                                            </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="g-recaptcha" data-sitekey="6LeixoIUAAAAAGU0Q432tu2GbZkInW3BNqEI6JJs"></div>
+                                                </div>
+
+                                                <div style="color: red;font-weight: bold;padding: 7px 0px;" id="errorDiv">
+                                                                                                    </div>
+
+                    <!--<input  value="Submit" type="button" id="sos_login"/> -->
+                                                <button class="btn btn-default" type="submit" id="">Send message</button>
+                                            </form>
+                                            <br>
+                                        </div>
+
+
+                                            <div class="post-navigation">
+                                                <!--<a href="blog-single.html" class="post-prev">                                                <div class="post-prev-title"><span>Previous Post</span>Standard post with a single image</div>                                            </a>-->
+                                                
+                                                <a href="../specialized/war-game-assessment.html" class="post-next">
+                                                    <div class="post-next-title"> <span>Next Assessment</span>War-Game Assessment </div>
+                                                </a>
+                                            </div>
+                                            <!-- Comments -->
+                                            <!-- end: Comments -->
+                                        </div>
+                                    </div>
+                                    <!-- end: Post single item-->
+                                </div>
+                            </div>
+                            <!-- end: content -->
+                            <!-- Sidebar-->
+                            <div class="sidebar col-md-3">
+                                <div class="pinOnScroll">
+                                    <!--widget newsletter-->
+                                    <div class="widget  widget-newsletter">
+                                        <form id="widget-search-form-sidebar" action="https://www.niiconsulting.com/search-results-page.html" method="get" class="form-inline">
+                                            <div class="input-group">
+                                                <input type="text" aria-required="true" name="q" class="form-control widget-search-form" placeholder="Search for pages..."> <span class="input-group-btn">                                                <button type="submit" id="widget-widget-search-form-button" class="btn btn-default"><i class="fa fa-search"></i></button>                                            </span> </div>
+                                        </form>
+                                    </div>
+                                    <!--end: widget newsletter-->
+                                    <!--Tabs with Posts-->
+                                    <div class="widget">
+                                        <div id="tabs-01" class="tabs simple">
+                                            <ul class="tabs-navigation">
+                                                <li class="active"><a href="#tab1">Assessment</a> </li>
+                                                <li class=""><a href="#tab2">Products</a> </li>
+                                                <li class=""><a href="#tab3">Blog</a> </li>
+                                            </ul>
+                                            <div class="tabs-content">
+                                                <div class="tab-pane active" id="tab1">
+                                                    <div class="post-thumbnail-list">
+                                                        
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/RedTeam_Assessment.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../specialized/red-team-assessment.html">RedTeam Assessment</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/War-Game_Assessment.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../specialized/war-game-assessment.html">War-Game Assessment</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Application_Security.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/application-security-audit.html">Application Security</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Mobile_Security_Testing.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/mobile-security-testing.html">Mobile Security Testing</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/SCADA_and_ICS.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../../showcase/scada-security-assessment.html">SCADA and ICS</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Telecom_Security.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/telecom-security-assessment.html">Telecom Security</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Sharepoint_Security.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/sharepoint-security.html">Sharepoint Security</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Source_Code_Review.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/source-code-review.html">Source Code Review</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Network_Audit.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/network-performance-audit.html">Network Audit</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Wireless_Auditing.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/wireless-auditing.html">Wireless Auditing</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Security_Audit.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/security-audit.html">Security Audit</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Penetration_Testing.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/penetration-testing-company.html">Penetration Testing</a>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/DDoS_Simulation.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/distributed-denial-of-service-assessment-ddos.html">DDoS Simulation</a>
+
+
+                                                </div>
+                                            </div>
+
+                                            <div class="post-thumbnail-entry">
+                                                <img alt="" src="../../images/Thumbnils/Spear_Phishing.jpg">
+                                                <div class="post-thumbnail-content">
+                                                    <a href="../security-assessment/spear-phishing.html">Spear Phishing</a>
+
+
+                                                </div>
+                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab2">
+                                                    <div class="post-thumbnail-list">
+                                                        <div class="post-thumbnail-entry"> <img alt="" src="../../images/blog/thumbnail/6.jpg">
+                                                            <div class="post-thumbnail-content"> <a href="https://www.firesec.io/">Firesec</a> <span class="post-category"><i class="fa fa-tag"></i> Technology</span> </div>
+                                                        </div>
+                                                        <div class="post-thumbnail-entry"> <img alt="" src="../../images/blog/thumbnail/7.jpg">
+                                                            <div class="post-thumbnail-content"> <a href="../../BlueScope.html">BlueScope</a> <span class="post-category"><i class="fa fa-tag"></i> Technology</span> </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="tab3">
+                                                    <div class="post-thumbnail-list">
+                                                        <div class="post-thumbnail-list">
+                                                            <div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/kickstart-your-holiday-spirit-with-some-cybersecurity-binge-watching/" target="_blank">Kickstart your holiday spirit with some cybersecurity binge watching!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 21, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+<div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/make-it-to-santas-nice-cybersecurity-list/" target="_blank">Make it to Santa’s ‘Nice’ Cybersecurity list!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 20, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+<div class="post-thumbnail-entry">
+    <div class="post-thumbnail-content">
+        <a href="https://niiconsulting.com/checkmate/2021/12/tis-the-season-to-beware-of-online-scammers-fa-la-la-la-la-la-la-la-la/" target="_blank">T’is The Season To Beware Of Online Scammers, Fa-la-la-la-la, la-la-la-la!</a>
+        <span class="post-date"><i class="fa fa-clock-o"></i> December 13, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+    </div>
+</div>
+
+
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End: Tabs with Posts-->
+                                    <!-- Twitter widget -->
+                                    <div class="widget widget-tweeter" data-username="envato" data-limit="2">
+                                        <h4 class="widget-title">Recent Tweets</h4> </div>
+                                    <!-- end: Twitter widget-->
+                                    <!--widget tags -->
+                                    <!--end: widget tags -->
+                                </div>
+                            </div>
+                            <!-- end: sidebar-->
+                        </div>
+                    </div>
+                </section>
+                <!-- end: Page Content -->
+                <!-- Footer -->
+                ﻿<footer id="footer" class="footer-light">
+    <div class="footer-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <!-- Footer widget area 1 -->
+                    <div class="widget  widget-contact-us" style="background-image: url('../../images/world-map-dark.png'); background-position: 50% 20px; background-repeat: no-repeat">
+                        <h4>COMPANY DETAILS</h4>
+                        <ul class="list-icon">
+                            <li style="font-size:13px;">
+                                <i class="fa fa-map-marker"></i>New York | Amsterdam | Sydney | Dubai | Riyadh | Mumbai | Singapore<br>
+                            </li>
+                            <li><i class="fa fa-envelope"></i> <a href="../../cdn-cgi/l/email-protection.html#4f262129200f2126262c20213c3a233b262128612c2022"><span class="__cf_email__" data-cfemail="adc4c3cbc2edc3c4c4cec2c3ded8c1d9c4c3ca83cec2c0">[email&#160;protected]</span></a> </li>
+                        </ul>
+                        <!-- Social icons -->
+                        <div class="social-icons social-icons-border float-left m-t-20">
+                            <ul>
+                                <li class="social-facebook"><a href="https://www.facebook.com/NIIConsulting" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li class="social-twitter"><a href="https://twitter.com/niiconsulting" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li class="social-youtube"><a href="https://www.linkedin.com/company/nii-consulting" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="social-youtube"><a href="https://www.youtube.com/channel/UCgxV86FZgYf7w197neRmBWQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                                <li class="social-instagram"><a href="https://www.instagram.com/niiconsulting/"><i class="fa fa-instagram"></i></a></li>
+<li class="social-instagram"><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw=="><i class="fa fa-podcast"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- end: Social icons -->
+                    </div>
+                    <!-- end: Footer widget area 1 -->
+                </div>
+                <div class="col-md-2">
+                    <!-- Footer widget area 2 -->
+                    <div class="widget">
+                        <h4>Quick LInks</h4>
+                        <ul class="list-icon list-icon-arrow">
+                           <li><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy8yNWU0YTIxYy9wb2RjYXN0L3Jzcw==">Tune into our Podcasts</a></li>
+                            <li><a href="../../company.html">About</a></li>
+                            <li><a href="../../Contact_Us.html">Contact</a></li>
+                            <li><a href="../../index.html">Home</a></li>
+                            <li><a href="https://niiconsulting.com/checkmate/">Blog</a></li>
+                            <li><a href="../../Services.html">Services</a></li>
+                            <li><a href="../../research/security-advisories.html">Security Advisories</a></li>
+                        </ul>
+                    </div>
+                    <!-- end: Footer widget area 2 -->
+                </div>
+                <div class="col-md-3">
+                    <!-- Footer widget area 3 -->
+                    <div class="widget">
+                        <h4>Latest From Our Blog</h4>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/kickstart-your-holiday-spirit-with-some-cybersecurity-binge-watching/" target="_blank">Kickstart your holiday spirit with some cybersecurity binge watching!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 21, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/make-it-to-santas-nice-cybersecurity-list/" target="_blank">Make it to Santa’s ‘Nice’ Cybersecurity list!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 20, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                            <div class="post-thumbnail-entry">
+                                <div class="post-thumbnail-content">
+                                    <a href="https://niiconsulting.com/checkmate/2021/12/tis-the-season-to-beware-of-online-scammers-fa-la-la-la-la-la-la-la-la/" target="_blank">T’is The Season To Beware Of Online Scammers, Fa-la-la-la-la, la-la-la-la!</a>
+                                    <span class="post-date"><i class="fa fa-clock-o"></i> December 13, 2021</span> <span class="post-category"><i class="fa fa-tag"></i> Technology</span>
+                                </div>
+                            </div>
+                           
+                    </div>
+                    <!-- end: Footer widget area 3 -->
+                </div>
+                <div class="col-md-3">
+                    <!-- Footer widget area 4 -->
+                    <div class="widget widget-tweeter1" data-limit="2">
+                        <h4>Follow Us On Twitter</h4>
+                        <a data-chrome="nofooter" class="twitter-timeline" data-height="210" href="https://twitter.com/niiconsulting?ref_src=twsrc%5Etfw">Tweets by niiconsulting</a> <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script async="" src="../../widgets.js" charset="utf-8"></script>
+                        <!--<embed src="https://www.linkedin.com/biz/nii-consulting/feed?start=0&v2=true">-->			
+                    </div>
+                    <!-- end: Footer widget area 4 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright-content">
+        <div class="container">
+            <div class="text text-center">Copyright &copy; 2022. All Rights Reserved by Network Intelligence</div>
+        </div>
+    </div>
+</footer>
+<script type='text/javascript'>
+    (function (I, _, T, i, c, k, s) {
+        if (I.iticks)
+            return;
+        I.iticks = {host: c, settings: s, clientId: k, cdn: _, queue: []};
+        var h = T.head || T.documentElement;
+        var e = T.createElement(i);
+        var l = I.location;
+        e.async = true;
+        e.src = (_ || c) + '/client/inject.min.js';
+        h.insertBefore(e, h.firstChild);
+        I.iticks.call = function (a, b) {
+            I.iticks.queue.push([a, b]);
+        };
+    })(window, 'https://d25ok8ck9cwr91.cloudfront.net', document, 'script', 'https://app.intelliticks.com', 'g52MA6jhi6tqmewSq_c', {});
+</script>
+
+<script type="text/javascript">
+_linkedin_partner_id = "1253508";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="../../d/px/index.htm?pid=1253508&fmt=gif">
+</noscript>
+<script>
+
+  (function (w,i,d,g,e,t,s) {w[d] = w[d]||[];t= i.createElement(g);
+
+    t.async=1;t.src=e;s=i.getElementsByTagName(g)[0];s.parentNode.insertBefore(t, s);
+
+  })(window, document, '_gscq','script','//widgets.getsitecontrol.com/187805/script.js');
+
+</script>                <!-- end: Footer -->
+        </div>
+        <!-- end: Wrapper -->
+        <!-- Go to top button --><a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a>
+        <!--Plugins-->
+        <script src="../../js/jquery.js"></script>
+        <!--Plugins-->
+        <script src="../../js/validate/jquery.validate.js"></script> 
+        <!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>-->
+        
+        <script>
+            $(document).ready(function () {
+                    $('#phone').keyup(function () { 
+                        this.value = this.value.replace(/[^0-9\.]/g,'');
+                    });
+
+                    jQuery(document).ready(function () {                    
+                    jQuery.validator.addMethod("emailFormat", function (value, element) {                        
+                    return this.optional(element) || /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(value);                    
+                    }, 'Please enter a valid email address.');                    
+                    jQuery.validator.addMethod("alphaNumericSpace", function (value, element) {                        
+                    return this.optional(element) || /^[a-z\d\-_,.:;\s]+$/i.test(value);                    
+                    }, 
+                    'Please enter Alpha Numeric Value only.');
+
+                    jQuery("#redAssessmentForm").validate({                        
+                    errorElement: "div",                        
+                    rules: {                            
+                    "name": {                                
+                      required: true,                                
+                      alphaNumericSpace: true                            
+                    },                            
+                    "email": {                                
+                      required: true,                                
+                      email: true,                                
+                      emailFormat: true                            
+                    },                            
+                    "phone": {                                
+                      required: true,                                
+                      number: true,                                
+                      maxlength: 10,                                
+                      minlength: 10                            
+                    }, 
+                    "country":{
+                      required:true
+                    },                                                       
+                    "organization": {                                
+                      required: true,                                
+                      alphaNumericSpace: true                            
+                    },
+                    "message":{
+                      required: true,                                
+                      alphaNumericSpace: true  
+                    }                        
+                    },                        
+                    messages: {                            
+                    "name": {                                
+                      required: "Please Enter Name",                                
+                      alphaNumericSpace: "Only Alpha Numeric And Space Are Allowed"                            
+                    },                            
+                    "email": {                                
+                      required: "Please Enter Email",                                
+                      email: "Invalid Email",                                
+                      emailFormat: "Please Enter Valid Email"                            
+                    },                            
+                    "phone": {                                
+                      required: "Please Enter Phone Number",                                
+                      number: "Invalid Phone Number",                                
+                      maxlength: "Please Enter Valid Phone Number",                                
+                      minlength: "Please Enter Valid Phone Number"                            
+                    },
+                    "country":{
+                        required:"Please Select Country" 
+                    },                           
+                    "organization": {                                
+                      required: "Please Enter Organization",                                
+                      alphaNumericSpace: "Only Alpha Numeric And Space Are Allowed"                            
+                    },
+                    "message":{
+                      required: "Please Enter Message",
+                      alphaNumericSpace: "Only Alpha Numeric And Space Are Allowed"
+                    }                        
+                    },                        
+                    submitHandler: function (form) {
+                            if(!$('#agree').is(':checked')) {
+                                // $("#agreeDiv").html('Please accept terms & conditions'); 
+                                // return false; 
+                            } if (grecaptcha.getResponse() === "") {  
+                                $("#errorDiv").html('Please Validate Captcha'); 
+                                return false; 
+                            } else {
+                                form.submit();
+                            }
+                        }                    
+                    });
+               });
+                    $("#button").click(function() {
+                         $('html,body').animate({
+                           scrollTop: $("#connectwithus").offset().top},
+                              'slow');
+                             });
+//                });
+            });
+            
+                            $("html, body").animate({ scrollTop: 0 }, 2000);
+                    </script>
+        <script src="../../js/plugins.js"></script>
+        <!--Template functions-->
+        <script src="../../js/functions.js"></script>
+    </body>
+
+    </html>
